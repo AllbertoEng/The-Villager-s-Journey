@@ -8,6 +8,4 @@ public class Exe {
 		janela = new Janela();
 	} 
 	
-	//teste branch
-	//Branch beto
 }
