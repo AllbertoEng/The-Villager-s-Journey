@@ -20,29 +20,100 @@ public class Menina {
 	//Posição inicial da menina
 	public int x;
 	public int y;
-	public boolean orientacaoMenina = false;
+	public boolean orientacaoMenina = false, proxima = false;
 	
-	int estado;
-	//Estado 1 para menina normal, 2 para endiabrada, maluca, surtada
+	//Parametrizacao animação personagem
+	public int personagemDelay = 0;
+	//Intervalo de tempo entre frames da animacao do personagem
+	//Cada unidade multiplica o delay (TrocaPosicao = delay * unidade)
+	public int TrocaPosicao = 15;
+	
 	//Parâmetros x e y para definir posição inicial
-	public Menina(int estado, int x ,int y) {
-		this.estado = estado;
+	public Menina(int x ,int y) {
 		this.x = x;
 		this.y = y;
-		
-		//Menina normal
+
 		MeninaDireita01 = new ImageIcon(MeninaDireita01Path).getImage();
 		MeninaDireita02 = new ImageIcon(MeninaDireita02Path).getImage();
 		MeninaEsquerda01 = new ImageIcon(MeninaEsquerda01Path).getImage();
 		MeninaEsquerda02 = new ImageIcon(MeninaEsquerda02Path).getImage();
 	}
+
+	public void proximidade(Player player, Menina menina) {
+		//Algoritmo de checar proximidade
+		if((player.x >= menina.x - 150 && player.x <= menina.x + 150) &&
+				(player.y >= menina.y - 150 && player.y <= menina.y +150)) {
+			menina.proxima = true;
+		}
+		else {
+			menina.proxima = false;			
+		}
+	}
+	
+	public void animacao(Player player, Menina menina) {
+		//Animacao menina
+		menina.personagemDelay += 1;
+		if(menina.personagemDelay > (menina.TrocaPosicao*2)) {
+			menina.personagemDelay = 0;
+		}
+		if(player.x > menina.x) {
+			menina.orientacaoMenina = true;
+		}
+		else {
+			menina.orientacaoMenina = false;
+		}
+	}
+	
+	public void colisao(Player player, Menina menina) {
+		//Algoritmo de colisão com a menina.
+		if (player.x >= menina.x - menina.MeninaEsquerda01.getWidth(null)/2 && 
+				(player.y >= menina.y - menina.MeninaEsquerda01.getHeight(null)*0.7 && 
+				player.y <= menina.y + menina.MeninaEsquerda01.getHeight(null)*0.7 ) &&
+				player.x <= menina.x) {
+			
+			player.x = player.x - player.velMax;
+		}
+
+		else if (player.x <= menina.x + menina.MeninaEsquerda01.getWidth(null)/2 && 
+				(player.y >= menina.y - menina.MeninaEsquerda01.getHeight(null)*0.7 &&
+				player.y <= menina.y + menina.MeninaEsquerda01.getHeight(null)*0.7 ) &&
+				player.x >= menina.x) {
+			
+			player.x = player.x + player.velMax;
+		}
+
+		if (player.y >= menina.y - menina.MeninaEsquerda01.getHeight(null)*0.7 - player.velMax &&
+				(player.x >= menina.x - menina.MeninaEsquerda01.getWidth(null)/2 && 
+				player.x <= menina.x + menina.MeninaEsquerda01.getWidth(null)/2) &&
+				player.y <= menina.y) {
+			player.y = player.y - player.velMax;
+		}
+			
+		else if (player.y <= menina.y + menina.MeninaEsquerda01.getHeight(null)*0.7+ player.velMax &&
+				(player.x >= menina.x - menina.MeninaEsquerda01.getWidth(null)/2 && 
+				player.x <= menina.x + menina.MeninaEsquerda01.getWidth(null)/2) &&
+				player.y >= menina.y) {
+			player.y = player.y + player.velMax;
+		}
+	}
 	
 	public void draw(Graphics g) {
 		if(orientacaoMenina) {
-			g.drawImage(MeninaDireita01, x, y, null);
+			if (personagemDelay <= TrocaPosicao) {
+				g.drawImage(MeninaDireita01, x, y, null);
+			}
+			else if (personagemDelay <= (TrocaPosicao*2)) {
+				g.drawImage(MeninaDireita02, x, y, null);
+			}
 		}
 		else {
-			g.drawImage(MeninaEsquerda01, x, y, null);
+			if (personagemDelay <= TrocaPosicao) {
+				g.drawImage(MeninaEsquerda01, x, y, null);
+			}
+			else if (personagemDelay <= (TrocaPosicao*2)) {
+				g.drawImage(MeninaEsquerda02, x, y, null);
+			}
+			
 		}
 		
 	}

@@ -30,6 +30,38 @@ int numeroDecorativo, x, y;
 		Decorativos.add(Decorativos00);
 		Decorativos.add(Decorativos01);
 	}		
+	public void colisaoD(Player player, Decorativos decorativos, int numeroDecorativo) {
+		//Algoritmo de colisão com a objetos.
+		if (player.x >= decorativos.x - decorativos.Decorativos.get(numeroDecorativo).getWidth(null)/2 && 
+				(player.y >= decorativos.y - decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7 && 
+				player.y <= decorativos.y + decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7 ) &&
+				player.x <= decorativos.x) {
+			
+			player.x = player.x - player.velMax;
+		}
+
+		else if (player.x <= decorativos.x + decorativos.Decorativos.get(numeroDecorativo).getWidth(null)/2 && 
+				(player.y >= decorativos.y - decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7 &&
+				player.y <= decorativos.y + decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7 ) &&
+				player.x >= decorativos.x) {
+			
+			player.x = player.x + player.velMax;
+		}
+
+		if (player.y >= decorativos.y - decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7 - player.velMax &&
+				(player.x >= decorativos.x - decorativos.Decorativos.get(numeroDecorativo).getWidth(null)/2 && 
+				player.x <= decorativos.x + decorativos.Decorativos.get(numeroDecorativo).getWidth(null)/2) &&
+				player.y <= decorativos.y) {
+			player.y = player.y - player.velMax;
+		}
+			
+		else if (player.y <= decorativos.y + decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7+ player.velMax &&
+				(player.x >= decorativos.x - decorativos.Decorativos.get(numeroDecorativo).getWidth(null)/2 && 
+				player.x <= decorativos.x + decorativos.Decorativos.get(numeroDecorativo).getWidth(null)/2) &&
+				player.y >= decorativos.y) {
+			player.y = player.y + player.velMax;
+		}
+	}
 	
 	public void draw(Graphics g) {
 		g.drawImage(Decorativos.get(numeroDecorativo), x, y, null);

@@ -7,11 +7,27 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import Interface.Intro;
+
 public class Player extends JPanel  {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	//Parâmetros para movimentação, velocidade inicial e posição inicial
+	public int x;
+	public int y;
+	public int velx = 0;
+	public int vely = 0;
+	public int velMax = 13;
+	public boolean w = false, s = false, a = false, d = false, aaux = false, daux = false;
+	
+	
+	public boolean direita = false;
+	String orientacao;
+	public boolean adaga = true;
+		
 	//Parametrizacao animação personagem
 	public int personagemDelay = 0;
 	//Intervalo de tempo entre frames da animacao do personagem
@@ -20,7 +36,7 @@ public class Player extends JPanel  {
 	
 	//Imagens e seus caminhos
 	//Player parado
-	Image parado01;
+	public Image parado01;
 	String pathParado01 = "images//player//parado//player_parado1.png";
 	Image parado02;
 	String pathParado02 = "images//player//parado//player_parado2.png";
@@ -51,19 +67,39 @@ public class Player extends JPanel  {
 	Image esquerda04;
 	String pathEsquerda04 = "images//player//esquerda//player_andando_left4.png";
 	
+	//***********************************************ADAGA************************************************
+	//Player parado com adaga
+	public Image parado01Adaga;
+	String pathParado01Adaga = "images//player//paradoAdaga//chico-attack-00.png";
+	Image parado02Adaga;
+	String pathParado02Adaga = "images//player//paradoAdaga//chico-attack-01.png";
 	
-	//Parâmetros para movimentação, velocidade inicial e posição inicial
-	public int x;
-	public int y;
-	public int velx = 0;
-	public int vely = 0;
-	public int velMax = 4;
-	public boolean w = false, s = false, a = false, d = false, aaux = false, daux = false;
+	//Player esquerda com adaga
+	Image paradoEsquerda01Adaga;
+	String pathParadoEsquerda01Adaga = "images//player//paradoAdaga//chico-00-left1.png";
+	Image paradoEsquerda02Adaga;
+	String pathParadoEsquerda02Adaga = "images//player//paradoAdaga//chico-00-left2.png";
 	
+	//Player andando para direita com adaga
+	Image direita01Adaga;
+	String pathDireita01Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword1.png";
+	Image direita02Adaga;
+	String pathDireita02Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword2.png";
+	Image direita03Adaga;
+	String pathDireita03Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword3.png";
+	Image direita04Adaga;
+	String pathDireita04Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword4.png";
 	
-	public boolean direita = false;
-	String orientacao;
-	//
+	//Player andando para esquerda com adaga
+	Image esquerda01Adaga;
+	String pathEsquerda01Adaga = "images//player//esquerdaAdaga//chicoliro_left-w-sword1.png";
+	Image esquerda02Adaga;
+	String pathEsquerda02Adaga = "images//player//esquerdaAdaga//chicoliro_left-w-sword2.png";
+	Image esquerda03Adaga;
+	String pathEsquerda03Adaga = "images//player//esquerdaAdaga//chicoliro_left-w-sword3.png";
+	Image esquerda04Adaga;
+	String pathEsquerda04Adaga = "images//player//esquerdaAdaga//chicoliro_left-w-sword4.png";
+
 	//Parâmetros x e y para definir posição inicial
 	//Orientação indica a direção que o player inicia, caso "Direita" a orientação é direita
 	public Player(int x, int y, String orientacao) {
@@ -75,7 +111,7 @@ public class Player extends JPanel  {
 			direita = true;
 		}		
 				
-		
+		//Player normal (adaga = false)
 		parado01 = new ImageIcon(pathParado01).getImage();
 		parado02 = new ImageIcon(pathParado02).getImage();
 		paradoEsquerda01 = new ImageIcon(pathParadoEsquerda01).getImage();
@@ -89,93 +125,201 @@ public class Player extends JPanel  {
 		esquerda02 = new ImageIcon(pathEsquerda02).getImage();
 		esquerda03 = new ImageIcon(pathEsquerda03).getImage();
 		esquerda04 = new ImageIcon(pathEsquerda04).getImage();
+		
+		//Player com adaga (adaga = true)
+		parado01Adaga = new ImageIcon(pathParado01Adaga).getImage();
+		parado02Adaga = new ImageIcon(pathParado02Adaga).getImage();
+		paradoEsquerda01Adaga = new ImageIcon(pathParadoEsquerda01Adaga).getImage();
+		paradoEsquerda02Adaga = new ImageIcon(pathParadoEsquerda02Adaga).getImage();
+		
+		direita01Adaga = new ImageIcon(pathDireita01Adaga).getImage();
+		direita02Adaga = new ImageIcon(pathDireita02Adaga).getImage();
+		direita03Adaga = new ImageIcon(pathDireita03Adaga).getImage();
+		direita04Adaga = new ImageIcon(pathDireita04Adaga).getImage();
+		esquerda01Adaga = new ImageIcon(pathEsquerda01Adaga).getImage();
+		esquerda02Adaga = new ImageIcon(pathEsquerda02Adaga).getImage();
+		esquerda03Adaga = new ImageIcon(pathEsquerda03Adaga).getImage();
+		esquerda04Adaga = new ImageIcon(pathEsquerda04Adaga).getImage();
+	}
+	
+	public void colisaoTotalTela(Player player){
+		//Colisao com bordas da tela
+		if(player.x >= Intro.SCREEN_WIDTH - player.parado01.getWidth(null)) {
+			player.x = player.x - player.velMax;
+		}
+		else if(player.x <= -1) {
+			player.x = player.x + player.velMax;
+		}
+		if(player.y >= Intro.SCREEN_HEIGHT - player.parado01.getHeight(null) ) {
+			player.y = player.y - player.velMax;
+		}
+		else if(player.y <= -1) {
+			player.y = player.y + player.velMax;
+		}
+	}
+	
+	public void animacao(Player player) {
+		//Animacao player
+		player.x = player.x + player.velx;
+		player.y = player.y + player.vely;
+		player.personagemDelay += 1;
+        if(player.personagemDelay > (player.TrocaPosicao*2)) {
+        	player.personagemDelay = 0;
+        }
 	}
 	
 	public void up() {
-        vely = -4;
+        vely = -1*velMax;
     }
 
     public void down() {
-        vely = 4;
+        vely = velMax;
     }
 
     public void left() {
-        velx = -4;
+        velx = -1*velMax;
     }
 
     public void right() {
-        velx = 4;
+        velx = velMax;
     }
 
 	public void draw(Graphics g) {
 		Graphics2D cena022D = (Graphics2D) g;
 		super.paintComponent(cena022D);
-		
-		if (w == true & d == true | s == true & d == true |  daux == true) {
-			if (personagemDelay <= TrocaPosicao/2) {
-				cena022D.drawImage(direita01, x, y, null);
-			}
-			else if (personagemDelay <= (TrocaPosicao)) {
-				cena022D.drawImage(direita02, x, y, null);
-			}
-			else if (personagemDelay <= TrocaPosicao*3/2) {
-				cena022D.drawImage(direita03, x, y, null);
-			}
-			else if (personagemDelay <= (TrocaPosicao*2)) {
-				cena022D.drawImage(direita04, x, y, null);
-			}	
-		}
-		
-		else if (w == true & a == true | s == true & a == true | aaux == true) {
-			if (personagemDelay <= TrocaPosicao/2) {
-				cena022D.drawImage(esquerda01, x, y, null);
-			}
-			else if (personagemDelay <= (TrocaPosicao)) {
-				cena022D.drawImage(esquerda02, x, y, null);
-			}
-			else if (personagemDelay <= TrocaPosicao*3/2) {
-				cena022D.drawImage(esquerda03, x, y, null);
-			}
-			else if (personagemDelay <= (TrocaPosicao*2)) {
-				cena022D.drawImage(esquerda04, x, y, null);
-			}	
-		}
-		
-		else if (w == true | s == true) {
-			if (personagemDelay <= TrocaPosicao/2) {
-				cena022D.drawImage(direita01, x, y, null);
-			}
-			else if (personagemDelay <= (TrocaPosicao)) {
-				cena022D.drawImage(direita02, x, y, null);
-			}
-			else if (personagemDelay <= TrocaPosicao*3/2) {
-				cena022D.drawImage(direita03, x, y, null);
-			}
-			else if (personagemDelay <= (TrocaPosicao*2)) {
-				cena022D.drawImage(direita04, x, y, null);
-			}	
-		}
-		
-		else {	
-			if(direita) {
-				if (personagemDelay <= TrocaPosicao) {
-					cena022D.drawImage(parado01, x, y, null);
+		if(adaga) {
+			if (w == true & d == true | s == true & d == true |  daux == true) {
+				if (personagemDelay <= TrocaPosicao/2) {
+					cena022D.drawImage(direita01Adaga, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao)) {
+					cena022D.drawImage(direita02Adaga, x, y, null);
+				}
+				else if (personagemDelay <= TrocaPosicao*3/2) {
+					cena022D.drawImage(direita03Adaga, x, y, null);
 				}
 				else if (personagemDelay <= (TrocaPosicao*2)) {
-					cena022D.drawImage(parado02, x, y, null);
-				}
+					cena022D.drawImage(direita04Adaga, x, y, null);
+				}	
 			}
-			else {
-				if (personagemDelay <= TrocaPosicao) {
-					cena022D.drawImage(paradoEsquerda01, x, y, null);
+			
+			else if (w == true & a == true | s == true & a == true | aaux == true) {
+				if (personagemDelay <= TrocaPosicao/2) {
+					cena022D.drawImage(esquerda01Adaga, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao)) {
+					cena022D.drawImage(esquerda02Adaga, x, y, null);
+				}
+				else if (personagemDelay <= TrocaPosicao*3/2) {
+					cena022D.drawImage(esquerda03Adaga, x, y, null);
 				}
 				else if (personagemDelay <= (TrocaPosicao*2)) {
-					cena022D.drawImage(paradoEsquerda02, x, y, null);
-				}
-				
+					cena022D.drawImage(esquerda04Adaga, x, y, null);
+				}	
 			}
-								
+			
+			else if (w == true | s == true) {
+				if (personagemDelay <= TrocaPosicao/2) {
+					cena022D.drawImage(direita01Adaga, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao)) {
+					cena022D.drawImage(direita02Adaga, x, y, null);
+				}
+				else if (personagemDelay <= TrocaPosicao*3/2) {
+					cena022D.drawImage(direita03Adaga, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao*2)) {
+					cena022D.drawImage(direita04Adaga, x, y, null);
+				}	
+			}
+			
+			else {	
+				if(direita) {
+					if (personagemDelay <= TrocaPosicao) {
+						cena022D.drawImage(parado01Adaga, x, y, null);
+					}
+					else if (personagemDelay <= (TrocaPosicao*2)) {
+						cena022D.drawImage(parado02Adaga, x, y, null);
+					}
+				}
+				else {
+					if (personagemDelay <= TrocaPosicao) {
+						cena022D.drawImage(paradoEsquerda01Adaga, x, y, null);
+					}
+					else if (personagemDelay <= (TrocaPosicao*2)) {
+						cena022D.drawImage(paradoEsquerda02Adaga, x, y, null);
+					}
+					
+				}
+									
+			}
 		}
-
+		else {
+			if (w == true & d == true | s == true & d == true |  daux == true) {
+				if (personagemDelay <= TrocaPosicao/2) {
+					cena022D.drawImage(direita01, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao)) {
+					cena022D.drawImage(direita02, x, y, null);
+				}
+				else if (personagemDelay <= TrocaPosicao*3/2) {
+					cena022D.drawImage(direita03, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao*2)) {
+					cena022D.drawImage(direita04, x, y, null);
+				}	
+			}
+			
+			else if (w == true & a == true | s == true & a == true | aaux == true) {
+				if (personagemDelay <= TrocaPosicao/2) {
+					cena022D.drawImage(esquerda01, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao)) {
+					cena022D.drawImage(esquerda02, x, y, null);
+				}
+				else if (personagemDelay <= TrocaPosicao*3/2) {
+					cena022D.drawImage(esquerda03, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao*2)) {
+					cena022D.drawImage(esquerda04, x, y, null);
+				}	
+			}
+			
+			else if (w == true | s == true) {
+				if (personagemDelay <= TrocaPosicao/2) {
+					cena022D.drawImage(direita01, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao)) {
+					cena022D.drawImage(direita02, x, y, null);
+				}
+				else if (personagemDelay <= TrocaPosicao*3/2) {
+					cena022D.drawImage(direita03, x, y, null);
+				}
+				else if (personagemDelay <= (TrocaPosicao*2)) {
+					cena022D.drawImage(direita04, x, y, null);
+				}	
+			}
+			
+			else {	
+				if(direita) {
+					if (personagemDelay <= TrocaPosicao) {
+						cena022D.drawImage(parado01, x, y, null);
+					}
+					else if (personagemDelay <= (TrocaPosicao*2)) {
+						cena022D.drawImage(parado02, x, y, null);
+					}
+				}
+				else {
+					if (personagemDelay <= TrocaPosicao) {
+						cena022D.drawImage(paradoEsquerda01, x, y, null);
+					}
+					else if (personagemDelay <= (TrocaPosicao*2)) {
+						cena022D.drawImage(paradoEsquerda02, x, y, null);
+					}
+					
+				}
+									
+			}
+		}	
 	}
 }
