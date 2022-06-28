@@ -32,7 +32,7 @@ public class Intro extends JPanel{
 	public String batalha1 = "sounds//Batalha1.wav";
 	public String batalha2 = "sounds//Batalha2.wav";
 	public String vilaSombrio = "sounds//ChegandonaVila.wav";
-	public String finalTriste = "sounds//Intro.wav";
+	public String finalTriste = "sounds//FinalTriste.wav";
 	public String finalFeliz = "sounds//Final_feliz.wav";
 
 	
