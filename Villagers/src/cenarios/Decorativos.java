@@ -5,9 +5,15 @@ import java.awt.Image;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-
+/**
+ * Lista dos Decorativos do jogo.
+ * @author Equipe11
+ *
+ */
 public class Decorativos {
-	
+	/**
+	 * Array com png dos decorativos
+	 */
 	ArrayList<Image> Decorativos = new ArrayList<Image>();
 	/*
 	 *Lista de decorativos:
@@ -25,12 +31,13 @@ public class Decorativos {
 	 	11 - Casa 03
 	 	12 - Casa 04
 	 	13 - Casa 05
-	 	14 - Mercado Guerreiro
-	 	15 - Transparente para colis�o
+	 	14 - Mercado Guerreiro 	
 	 */
 
 	
-	//Path das imagens dos caminhos
+	/**
+	 * Path das imagens dos caminhos
+	 */
 	Image Decorativos00;
 	String Decorativos00Path = "images//Decorativos//mushroom.png";
 	Image Decorativos01;
@@ -68,9 +75,16 @@ public class Decorativos {
 	
 	Image Decorativos15;
 	String Decorativos15Path = "images//Decorativos//transparente.png";
-
-	int numeroDecorativo, x, y;
-	
+	/**
+	 * Iniciar posição dos decorativos
+	 */
+int numeroDecorativo, x, y;
+	/**
+	 * Enumerar os Decorativos
+	 * @param numeroDecorativo
+	 * @param x = posição horizontal do decorativos
+	 * @param y = posição vertical dos decorativos
+	 */
 	public Decorativos(int numeroDecorativo, int x, int y) {
 		this.numeroDecorativo = numeroDecorativo;
 		this.x = x;
@@ -93,6 +107,9 @@ public class Decorativos {
 		Decorativos14 = new ImageIcon(Decorativos14Path).getImage();
 		Decorativos15 = new ImageIcon(Decorativos15Path).getImage();
 		
+		/**
+		 * Adicionando Decorativos na tela
+		 */
 		Decorativos.add(Decorativos00);
 		Decorativos.add(Decorativos01);
 		Decorativos.add(Decorativos02);
@@ -109,9 +126,14 @@ public class Decorativos {
 		Decorativos.add(Decorativos13);
 		Decorativos.add(Decorativos14);
 		Decorativos.add(Decorativos15);
-	}		
+	}
+	/**
+	 * Algoritmo de colisão com Decorativos
+	 * @param player = Posição x e y de colisão com o player
+	 * @param decorativos = Decorativo que terá colisão
+	 * @param numeroDecorativo = Número do Decorativo que terá colisão
+	 */
 	public void colisaoD(Player player, Decorativos decorativos, int numeroDecorativo) {
-		//Algoritmo de colisão com a objetos.
 		if (player.x >= decorativos.x - decorativos.Decorativos.get(numeroDecorativo).getWidth(null)/2 && 
 				(player.y >= decorativos.y - decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7 && 
 				player.y <= decorativos.y + decorativos.Decorativos.get(numeroDecorativo).getHeight(null)*0.7 ) &&
@@ -142,7 +164,9 @@ public class Decorativos {
 			player.y = player.y + player.velMax;
 		}
 	}
-	
+	/**
+	 * Método para "pintar" os decorativos na tela
+	 */
 	public void draw(Graphics g) {
 		g.drawImage(Decorativos.get(numeroDecorativo), x, y, null);
 		

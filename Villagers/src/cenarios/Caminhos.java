@@ -5,13 +5,21 @@ import java.awt.Image;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
-
+/**
+ * Lista dos Caminhos das Cenas
+ * @author Equipe11
+ *
+ */
 public class Caminhos {
-	
+	/**
+	 * Array com png dos caminhos
+	 */
 	ArrayList<Image> caminhos = new ArrayList<Image>();
 
 	
-	//Path das imagens dos caminhos
+	/**
+	 * Path das imagens dos caminhos
+	 */
 	Image caminho00;
 	String caminho00Path = "images//Caminhos//01.png";
 	Image caminho01;
@@ -40,7 +48,10 @@ public class Caminhos {
 	
 	
 	int numeroCaminho;
-	
+	/**
+	 * Enumerando os caminhos para cada Cena
+	 * @param numeroCaminho
+	 */
 	public Caminhos(int numeroCaminho) {
 		this.numeroCaminho = numeroCaminho;
 		
@@ -57,6 +68,9 @@ public class Caminhos {
 		caminho10 = new ImageIcon(caminho10Path).getImage();
 		caminho11 = new ImageIcon(caminho11Path).getImage();
 		
+		/**
+		 * Adicionando Caminhos na tela
+		 */
 		caminhos.add(caminho00);
 		caminhos.add(caminho01);
 		caminhos.add(caminho02);
@@ -70,7 +84,9 @@ public class Caminhos {
 		caminhos.add(caminho10);
 		caminhos.add(caminho11);
 	}
-	
+	/**
+	 * Método para "pintar" os caminhos na tela
+	 */
 	public void draw(Graphics g) {
 		g.drawImage(caminhos.get(numeroCaminho), 0, 0, null);
 		

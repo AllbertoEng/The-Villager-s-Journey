@@ -4,9 +4,15 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-
+/**
+ * Menina - Batalha
+ * @author Equipe11
+ *
+ */
 public class MeninaBatalha {
-	//Posição inicial da menina
+	/**
+	 * Parâmetros de posição inicial
+	 */
 	public int x;
 	public int y;
 	int corrida = 10;
@@ -17,17 +23,22 @@ public class MeninaBatalha {
 	public boolean meninaDerrotada = false , manterDerrotada = false;
 	public int tipoAtaque = -1;
 	
-	//Parametrizacao animação personagem
+	/**
+	 * Parametrizacao animação personagem
+	 */
 	public int personagemDelay = 0, voltarDelay = 0;
-	//Intervalo de tempo entre frames da animacao do personagem
-	//Cada unidade multiplica o delay (TrocaPosicao = delay * unidade)
 	public int TrocaPosicao = 15, voltar = 30;
-		
+	
+	/**
+	 * MeninaBatalha parada png
+	 */
 	static Image Parada01;
 	String Parada01Path = "images///Menina//possuidaParada//michica-attack-00.png";
 	Image Parada02;
 	String Parada02Path = "images///Menina//possuidaParada//michica-attack-01.png";
-	
+	/**
+	 * MeninaBatalha ataques png
+	 */
 	Image Ataque01;
 	String Ataque01Path = "images//Menina//ataque01//michica-attack-01.png";
 	Image Ataque02;
@@ -38,7 +49,6 @@ public class MeninaBatalha {
 	String Ataque04Path = "images//Menina//ataque01//michica-attack-04.png";
 	Image Ataque05;
 	String Ataque05Path = "images//Menina//ataque01//michica-attack-05.png";
-	
 	Image Ataque06;
 	String Ataque06Path = "images//Menina//ataque02//michica-attack-03.png";
 	Image Ataque07;
@@ -49,7 +59,9 @@ public class MeninaBatalha {
 	String Ataque09Path = "images//Menina//ataque02//michica-attack-06.png";
 	Image Ataque10;
 	String Ataque10Path = "images//Menina//ataque02//michica-attack-07.png";
-	
+	/**
+	 * MeninaBatalha dano png
+	 */
 	Image Dano01;
 	String Dano01Path = "images//Menina//dano//michica-attack-03.png";
 	Image Dano02;
@@ -58,7 +70,9 @@ public class MeninaBatalha {
 	String Dano03Path = "images//Menina//Dano//michica-attack-05.png";
 	Image Dano04;
 	String Dano04Path = "images//Menina//Dano//michica-attack-06.png";	
-	
+	/**
+	 * MeninaBatalha derrota png
+	 */
 	Image Derrota01;
 	String Derrota01Path = "images//Menina//derrotada//michica-defeat1.png";
 	Image Derrota02;
@@ -71,7 +85,11 @@ public class MeninaBatalha {
 	String Derrota05Path = "images//Menina//derrotada//michica-defeat5.png";
 
 	
-	//Parâmetros x e y para definir posição inicial
+	/**
+	 * Inicializar posição de batalha da menina
+	 * @param x = posição horizontal da menina
+	 * @param y = posição vertical da menina
+	 */
 	public MeninaBatalha(int x ,int y) {
 		this.x = x;
 		this.y = y;
@@ -133,15 +151,19 @@ public class MeninaBatalha {
 			voltando = true;
 		}
 	}
-	
+	/**
+	 * Animação de batalha da menina
+	 * @param menina = posição
+	 */
 	public void animacao(MeninaBatalha menina) {
-		//Animacao menina
 		menina.personagemDelay += 1;
 		if(menina.personagemDelay > (menina.TrocaPosicao*2)) {
 			menina.personagemDelay = 0;
 		}		
 	}
-	
+	/**
+	 * Método para "pintar" o MeninaBatalha na tela
+	 */
 	public void draw(Graphics g) {	
 		if(meninaDerrotada == false) {
 			if(dano == false) {

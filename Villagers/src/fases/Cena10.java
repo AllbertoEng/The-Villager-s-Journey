@@ -63,7 +63,7 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos13 = new Decorativos(6, 900, 600);
 	Decorativos decorativos14 = new Decorativos(6, 1050, 600);
 	Decorativos decorativos15 = new Decorativos(6, 1200, 600);
-	//Decorativos decorativos16 = new Decorativos(1, 780, 10);
+	Decorativos decorativos16 = new Decorativos(1, 780, 10);
 	Decorativos decorativos17 = new Decorativos(3, 550, 650);
 	Decorativos decorativos18 = new Decorativos(3, 650, 650);
 	Decorativos decorativos19 = new Decorativos(3, 750, 650);
@@ -118,10 +118,10 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 		decorativos13.draw(g);
 		decorativos14.draw(g);
 		decorativos15.draw(g);
-		//decorativos16.draw(g);
+		decorativos16.draw(g);
 		decorativos17.draw(g);
 		decorativos18.draw(g);
-		
+		decorativos19.draw(g);
 		
 		velho.draw(g);
 		
@@ -199,7 +199,7 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 		}
 		
 		if (e.getKeyCode() == KeyEvent.VK_E) {
-			if(velho.proximo && player.adaga == false) {
+			if(velho.proximo) {
 				if(Caixa.auxPassagemdeDialogo != 0) {
 					Caixa.currentDialog = "";
 					Caixa.auxiliar = "";	
@@ -282,13 +282,11 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 	}
 
 	public void passagemDeCaminho() {
-		if(player.adaga) {
-			if(player.y < Intro.SCREEN_HEIGHT - 751) {
-	        	Janela.cena11.timer.start();
-	        	Janela.cena10.timer.stop();
-	            Janela.cl.show(Janela.panelBase, "cena11");
-	        }
-		}        
+        if(player.y < Intro.SCREEN_HEIGHT - 761) {
+        	Janela.cena11.timer.start();
+        	Janela.cena10.timer.stop();
+            Janela.cl.show(Janela.panelBase, "cena11");
+        }
         /*
             else if(player.x < 10) {
         	Janela.cena09.timer.start();

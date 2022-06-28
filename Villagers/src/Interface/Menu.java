@@ -11,30 +11,39 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ * Menu inicial do jogo.
+ * @author Equipe 11
+ *
+ */
 public class Menu extends JPanel{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
-	//Resolução da tela
+	/**
+	 * Resolução da tela
+	 */
 	final static int SCREEN_WIDTH = Intro.SCREEN_WIDTH;
 	final static int SCREEN_HEIGHT = Intro.SCREEN_HEIGHT;
 	
-	//Declaração imagem de fundo
+	/**
+	 * Declaração da imagem de fundo
+	 */
 	Image Background;
 	String BackgroundPath = "images//logo_menu.png";
-
+	/**
+	 * Painel
+	 */
 	public Menu(){	
-		//Panel
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));	
 		this.setBackground(Color.black);
 		this.setLayout(null);
 		
 		Background = new ImageIcon(BackgroundPath).getImage();
 		
-		//Configurações botão jogar
+		/**
+		 * Configuração do botão 'jogar'
+		 */
 		JButton botaoJogar = new JButton("Jogar");	
 		botaoJogar.setIcon(new ImageIcon("images//button_start.png"));
 		botaoJogar.setBounds(SCREEN_WIDTH-500, 175, 360, 100);		
@@ -55,7 +64,9 @@ public class Menu extends JPanel{
 		});
 		this.add(botaoJogar);
 		
-		//Configurações botão Opções
+		/**
+		 * Configuração do botão 'Opções'
+		 */
 		JButton botaoOpcoes = new JButton("Opcoes");
 		botaoOpcoes.setIcon(new ImageIcon("images//button_opcoes.png"));
 		botaoOpcoes.setBounds(SCREEN_WIDTH-500, 300, 360, 100);
@@ -69,7 +80,9 @@ public class Menu extends JPanel{
 		});
 		this.add(botaoOpcoes);
 		
-		//Configurações botão sair
+		/**
+		 * Configuração do botão 'Sair'
+		 */
 		JButton botaoSair = new JButton("Sair");		
 		botaoSair.setIcon(new ImageIcon("images//button_sair.png"));
 		botaoSair.setBounds(SCREEN_WIDTH-500, 425, 360, 100);
@@ -88,6 +101,9 @@ public class Menu extends JPanel{
 	}	
 
 	@Override
+	/**
+	 * Método para "pintar" os componentes na tela
+	 */
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.drawImage(Background, 0, 0, null);

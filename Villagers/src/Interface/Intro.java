@@ -9,13 +9,21 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
-
+/**
+ * Introdução do jogo.
+ * @author Equipe11
+ *
+ */
 public class Intro extends JPanel{
-	//Resolução da tela
-	public final static int SCREEN_WIDTH = 1366;//y - largura
-	public final static int SCREEN_HEIGHT = 768;//x - altura
+	/**
+	 * Resolução da tela.
+	 */
+	public final static int SCREEN_WIDTH = 1366;
+	public final static int SCREEN_HEIGHT = 768;
 	
-	//Inicializar audio
+	/**
+	 * Inicializar áudio.
+	 */
 	public static AudioInputStream stream;
 	public static Clip clip;
 	public String audioFileName = "sounds//UndetaleCompact.wav";
@@ -24,23 +32,23 @@ public class Intro extends JPanel{
 	public String batalha1 = "sounds//Batalha1.wav";
 	public String batalha2 = "sounds//Batalha2.wav";
 	public String vilaSombrio = "sounds//ChegandonaVila.wav";
-	public String finalTriste = "sounds//FinalTriste.wav";
+	public String finalTriste = "sounds//Intro.wav";
 	public String finalFeliz = "sounds//Final_feliz.wav";
 
 	
-	//Delay para fechar introdução
+	/**
+	 * Delay para fechar a introdução
+	 */
 	static int wait = 1500;
-	
+	/**
+	 * Introduzindo componentes do painel
+	 */
 	Intro(){
-		//Panel
-
 		playAudio(audioFileName, 99);
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
 		this.setLayout(null);
 
-		
-		//Configurações botão jogar
 		JButton botaoMenu = new JButton("");	
 		botaoMenu.setIcon(new ImageIcon("images//introducao_black.png"));
 		botaoMenu.setBounds(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);		
@@ -52,15 +60,19 @@ public class Intro extends JPanel{
 		this.add(botaoMenu);
 	}
 	
-	//Pintura do quadro
+	/**
+	 * Método para "pintar" os componentes na tela
+	 */
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D intro2D = (Graphics2D) g;
 		super.paint(intro2D);
 	}	
 	
-	//Leitura de arquivo .wav
-
+	/**
+	 * Leitura de arquivo .wav
+	 * 
+	 */
 	public void playAudio(String caminho, int loop){
 		try {
 		File audioPath = new File(caminho);

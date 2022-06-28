@@ -8,14 +8,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import Interface.Intro;
-
+/**
+ * Player - Personagem
+ * @author Equipe11
+ *
+ */
 public class Player extends JPanel  {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
-	//Parâmetros para movimentação, velocidade inicial e posição inicial
+	/**
+	 * Parâmetros para movimentação, velocidade inicial e posição inicial
+	 */
 	public int x;
 	public int y;
 	public int velx = 0;
@@ -28,26 +32,31 @@ public class Player extends JPanel  {
 	String orientacao;
 	public boolean adaga = false;
 		
-	//Parametrizacao animação personagem
+	/**
+	 * Parametrizacao animação personagem
+	 */
 	public int personagemDelay = 0;
-	//Intervalo de tempo entre frames da animacao do personagem
-	//Cada unidade multiplica o delay (TrocaPosicao = delay * unidade)
 	public int TrocaPosicao = 13;
 	
-	//Imagens e seus caminhos
-	//Player parado
+	/**
+	 * Player parado png
+	 */
 	public Image parado01;
 	String pathParado01 = "images//player//parado//player_parado1.png";
 	Image parado02;
 	String pathParado02 = "images//player//parado//player_parado2.png";
 	
-	//Player esquerda
+	/**
+	 * Player olhando para a esquerda png
+	 */
 	Image paradoEsquerda01;
 	String pathParadoEsquerda01 = "images//player//parado//player_parado_left1.png";
 	Image paradoEsquerda02;
 	String pathParadoEsquerda02 = "images//player//parado//player_parado_left2.png";
 	
-	//Player andando para direita
+	/**
+	 * Player andando para direita png
+	 */
 	Image direita01;
 	String pathDireita01 = "images//player//direita//player_andando_right1.png";
 	Image direita02;
@@ -57,7 +66,9 @@ public class Player extends JPanel  {
 	Image direita04;
 	String pathDireita04 = "images//player//direita//player_andando_right4.png";
 	
-	//Player andando para esquerda
+	/**
+	 * Player andando para esquerda png
+	 */
 	Image esquerda01;
 	String pathEsquerda01 = "images//player//esquerda//player_andando_left1.png";
 	Image esquerda02;
@@ -68,19 +79,25 @@ public class Player extends JPanel  {
 	String pathEsquerda04 = "images//player//esquerda//player_andando_left4.png";
 	
 	//***********************************************ADAGA************************************************
-	//Player parado com adaga
+	/**
+	 * Player parado com adaga png
+	 */
 	public Image parado01Adaga;
 	String pathParado01Adaga = "images//player//paradoAdaga//chico-attack-00.png";
 	Image parado02Adaga;
 	String pathParado02Adaga = "images//player//paradoAdaga//chico-attack-01.png";
 	
-	//Player esquerda com adaga
+	/**
+	 * Player esquerda com adaga png
+	 */
 	Image paradoEsquerda01Adaga;
 	String pathParadoEsquerda01Adaga = "images//player//paradoAdaga//chico-00-left1.png";
 	Image paradoEsquerda02Adaga;
 	String pathParadoEsquerda02Adaga = "images//player//paradoAdaga//chico-00-left2.png";
 	
-	//Player andando para direita com adaga
+	/**
+	 * Player andando para direita com adaga png
+	 */
 	Image direita01Adaga;
 	String pathDireita01Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword1.png";
 	Image direita02Adaga;
@@ -90,7 +107,9 @@ public class Player extends JPanel  {
 	Image direita04Adaga;
 	String pathDireita04Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword4.png";
 	
-	//Player andando para esquerda com adaga
+	/**
+	 * Player andando para esquerda com adaga png
+	 */
 	Image esquerda01Adaga;
 	String pathEsquerda01Adaga = "images//player//esquerdaAdaga//chicoliro_left-w-sword1.png";
 	Image esquerda02Adaga;
@@ -100,8 +119,12 @@ public class Player extends JPanel  {
 	Image esquerda04Adaga;
 	String pathEsquerda04Adaga = "images//player//esquerdaAdaga//chicoliro_left-w-sword4.png";
 
-	//Parâmetros x e y para definir posição inicial
-	//Orientação indica a direção que o player inicia, caso "Direita" a orientação é direita
+	/**
+	 * Inicializar posição do player
+	 * @param x = posição horizontal do player
+	 * @param y = posição vertical do player
+	 * @param orientacao = indica a direção que o player inicia, caso "Direita" a orientação é direita.
+	 */
 	public Player(int x, int y, String orientacao) {
 		this.x = x;
 		this.y = y;
@@ -111,7 +134,9 @@ public class Player extends JPanel  {
 			direita = true;
 		}		
 				
-		//Player normal (adaga = false)
+		/**
+		 * Player normal (adaga = false)
+		 */
 		parado01 = new ImageIcon(pathParado01).getImage();
 		parado02 = new ImageIcon(pathParado02).getImage();
 		paradoEsquerda01 = new ImageIcon(pathParadoEsquerda01).getImage();
@@ -126,7 +151,9 @@ public class Player extends JPanel  {
 		esquerda03 = new ImageIcon(pathEsquerda03).getImage();
 		esquerda04 = new ImageIcon(pathEsquerda04).getImage();
 		
-		//Player com adaga (adaga = true)
+		/**
+		 * Player com adaga (adaga = true)
+		 */
 		parado01Adaga = new ImageIcon(pathParado01Adaga).getImage();
 		parado02Adaga = new ImageIcon(pathParado02Adaga).getImage();
 		paradoEsquerda01Adaga = new ImageIcon(pathParadoEsquerda01Adaga).getImage();
@@ -141,9 +168,11 @@ public class Player extends JPanel  {
 		esquerda03Adaga = new ImageIcon(pathEsquerda03Adaga).getImage();
 		esquerda04Adaga = new ImageIcon(pathEsquerda04Adaga).getImage();
 	}
-	
+	/**
+	 * Algoritmo de colisão do player com as bordas da tela
+	 * @param player
+	 */
 	public void colisaoTotalTela(Player player){
-		//Colisao com bordas da tela
 		if(player.x >= Intro.SCREEN_WIDTH - player.parado01.getWidth(null)) {
 			player.x = player.x - player.velMax;
 		}
@@ -157,9 +186,11 @@ public class Player extends JPanel  {
 			player.y = player.y + player.velMax;
 		}
 	}
-	
+	/**
+	 * Animação do player
+	 * @param player = posição e velocidade
+	 */
 	public void animacao(Player player) {
-		//Animacao player
 		player.x = player.x + player.velx;
 		player.y = player.y + player.vely;
 		player.personagemDelay += 1;
@@ -167,28 +198,40 @@ public class Player extends JPanel  {
         	player.personagemDelay = 0;
         }
 	}
-	
+	/*
+	 * Player não se movimenta durante os diálogos
+	 */
 	public void travado(Player player) {
 		player.x = player.x - player.velx;
 		player.y = player.y - player.vely;
 	}
-	
+	/**
+	 * Movimentação do player para cima
+	 */
 	public void up() {
         vely = -1*velMax;
     }
-
+	/**
+	 * Movimentação do player para baixo
+	 */
     public void down() {
         vely = velMax;
     }
-
+    /**
+     * Movimentação do player para a esquerda
+     */
     public void left() {
         velx = -1*velMax;
     }
-
+    /**
+     * Movimentação do player para a direita
+     */
     public void right() {
         velx = velMax;
     }
-
+    /**
+	 * Método para "pintar" o Player na tela
+	 */
 	public void draw(Graphics g) {
 		Graphics2D cena022D = (Graphics2D) g;
 		super.paintComponent(cena022D);

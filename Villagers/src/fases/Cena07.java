@@ -60,7 +60,6 @@ public class Cena07 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos8 = new Decorativos(15, 39, 210);
 	Decorativos decorativos9 = new Decorativos(15, 120, 210);
 	
-	
 	Caixa caixa = new Caixa();
 	
 	public Cena07(){ 
@@ -71,7 +70,7 @@ public class Cena07 extends JPanel implements ActionListener, KeyListener{
 				
 		//Timer iniciado
 		timer = new Timer(delay, this);
-		//timer.start();
+		timer.start();
 		
 		//Parâmetros para detecção do teclado
 		requestFocusInWindow();
@@ -92,10 +91,10 @@ public class Cena07 extends JPanel implements ActionListener, KeyListener{
 		decorativos4.draw(g);
 		decorativos5.draw(g);
 		decorativos6.draw(g);
-		decorativos7.draw(g);	
+		decorativos7.draw(g);
 		decorativos8.draw(g);
 		decorativos9.draw(g);
-
+		
 		menina.draw(g);
 		//velho.draw(g);
 		
@@ -108,7 +107,7 @@ public class Cena07 extends JPanel implements ActionListener, KeyListener{
 		}	
 		
 		// Se dialogo da menina estiver disponivel e  tecla E foi pressionada, desenhe a caixa de dialogo
-		if(menina.proxima == true && Caixa.CaixaMenina == true) {
+		if(velho.proximo == true && Caixa.CaixaMenina == true) {
 			Caixa.DialogoM(g, menina);
 			player.travado(player);
 		}	
@@ -132,9 +131,6 @@ public class Cena07 extends JPanel implements ActionListener, KeyListener{
 		
 		player.animacao(player);
 		player.colisaoTotalTela(player);
-		
-		/*velho.colisao(player, velho);
-		velho.animacao(player, velho);*/
 		
 		menina.proximidade(player, menina);
 		menina.colisao(player, menina);

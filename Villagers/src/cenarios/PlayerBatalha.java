@@ -8,14 +8,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import Interface.Intro;
-
+/**
+ * Player - Batalha
+ * @author Equipe11
+ *
+ */
 public class PlayerBatalha extends JPanel  {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
-	//Parâmetros para posição inicial
+	/**
+	 * Parâmetros de posição inicial
+	 */
 	public int x;
 	public int y;	
 	int corrida = 10;
@@ -26,20 +30,23 @@ public class PlayerBatalha extends JPanel  {
 	public boolean voltando = false;
 	public int tipoAtaque = -1;
 		
-	//Parametrizacao animação personagem
+	/**
+	 * Parametrizacao animação personagem
+	 */
 	public int personagemDelay = 0, voltarDelay = 0;
-	//Intervalo de tempo entre frames da animacao do personagem
-	//Cada unidade multiplica o delay (TrocaPosicao = delay * unidade)
 	public int TrocaPosicao = 15, voltar = 30;
 	
-	//Imagens e seus caminhos
-	//Player parado com adaga
+	/**
+	 * PlayerBatalha parado png
+	 */
 	public Image parado01Adaga;
 	String pathParado01Adaga = "images//player//paradoAdaga//chico-attack-00.png";
 	Image parado02Adaga;
 	String pathParado02Adaga = "images//player//paradoAdaga//chico-attack-01.png";
 	
-	//Player andando para direita com adaga
+	/**
+	 * PlayerBatalha andando para direita com adaga png
+	 */
 	Image direita01Adaga;
 	String pathDireita01Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword1.png";
 	Image direita02Adaga;
@@ -48,19 +55,22 @@ public class PlayerBatalha extends JPanel  {
 	String pathDireita03Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword3.png";
 	Image direita04Adaga;
 	String pathDireita04Adaga = "images//player//direitaAdaga//chicoliro_right-w-sword4.png";
-	
+	/**
+	 * Ataques do playerbatalha
+	 */
 	Image Ataque01;
 	String pathAtaque01 = "images//player//ataque01//chico-attack-01.png";
 	Image Ataque02;
 	String pathAtaque02 = "images//player//ataque01//chico-attack-02.png";
-	
 	Image Ataque03;
 	String pathAtaque03 = "images//player//ataque02//chico-attack-03.png";
 	Image Ataque04;
 	String pathAtaque04 = "images//player//ataque02//chico-attack-04.png";
 	Image Ataque05;
 	String pathAtaque05 = "images//player//ataque02//chico-attack-05.png";	
-	
+	/**
+	 * Danos do playerbatalha
+	 */
 	Image Dano01;
 	String Dano01Path = "images//player//dano//chico-attack-03.png";
 	Image Dano02;
@@ -71,8 +81,11 @@ public class PlayerBatalha extends JPanel  {
 	String Dano04Path = "images//player//dano//chico-attack-06.png";	
 	
 
-	//Parâmetros x e y para definir posição inicial
-	//Orientação indica a direção que o player inicia, caso "Direita" a orientação é direita
+	/**
+	 * Inicializar posição de batalha do player
+	 * @param x = posição horizontal do player
+	 * @param y = posição vertical do player
+	 */
 	public PlayerBatalha(int x, int y) {
 		this.x = x;
 		this.y = y;		
@@ -141,15 +154,19 @@ public class PlayerBatalha extends JPanel  {
 			voltando = true;
 		}
 	}
-	
+	/**
+	 * Animação de batalha do player
+	 * @param player = posição
+	 */
 	public void animacao(PlayerBatalha player) {
-		//Animacao player
 		player.personagemDelay += 1;
         if(player.personagemDelay > (player.TrocaPosicao*2)) {
         	player.personagemDelay = 0;
         }
 	}
-
+	/**
+	 * Método para "pintar" o PlayerBatalha na tela
+	 */
 	public void draw(Graphics g) {
 		if(dano == false) {
 			if(caminhando == false && iniciandoAtaque == false && atacando == false) {

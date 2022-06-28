@@ -3,19 +3,28 @@ package Interface;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-
+/**
+ * Animações do incio do jogo
+ * @author Equipe11
+ *
+ */
 public class animacao extends JPanel implements ActionListener {
 	final int SCREEN_WIDTH = 1366;
 	final int SCREEN_HEIGHT = 768;
-	//Imagens
+	/**
+	 * Imagens da animação inicial
+	 */
 	String LaserPath = "images//laser.png";
 	Image Laser;
 	String BackgroundPath = "images//bg_red.jpg";
 	Image Background;
-	//Timer
+	
 	Timer timer;
 	int delay = 10;
-	//Velocidade e posição
+	
+	/*
+	 * Implementando velocidade e posição 
+	 */
 	int xVelocity = 5;
 	int yVelocity = 5;
 	int x = 0;
@@ -23,15 +32,19 @@ public class animacao extends JPanel implements ActionListener {
 	int x2 = 200;
 	int y2 = 200;
 	
+	/**
+	 * Adicionando animações no painel
+	 */
 	animacao(){
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
 		Laser = new ImageIcon(LaserPath).getImage();
 		Background = new ImageIcon(BackgroundPath).getImage();
 		timer = new Timer(delay,this);
-		//timer.start();
 	}
-	
+	/**
+	 * Método para "pintar" os componentes na tela
+	 */
 	public void paint(Graphics g) {
 		super.paint(g);
 		

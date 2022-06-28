@@ -2,9 +2,15 @@ package dialogos;
 
 import java.awt.Font;
 import java.awt.Graphics;
-
+/**
+ * Pergaminho do jogo
+ * @author Equipe11
+ *
+ */
 public class Pergaminho {
-
+	/**
+	 * Personalizando texto do pergaminho	
+	 */
 	static int fontSize = 20;
 	public static int contador = 0;
     static Font f = new Font("SansSerif Bold Italic", Font.BOLD, fontSize);
@@ -16,7 +22,10 @@ public class Pergaminho {
     	
     	
     }
-    
+    /**
+     * Desenhando textos do pergaminho
+     * @param g = pintar
+     */
     public static void perg(Graphics g) {
 		String[] paragrafos = frasePergaminho.split("\n");	
 		String p1 = paragrafos[0];
@@ -36,7 +45,6 @@ public class Pergaminho {
 		g.drawString(p5, x, y+245);
 		g.drawString(p6, x, y+315);
 		g.drawString(p7, x, y+340);
-			//y+= 45;
-			//x+= 10;
+
 	}
 }

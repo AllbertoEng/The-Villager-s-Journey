@@ -37,9 +37,18 @@ public class Cena11 extends JPanel implements ActionListener, KeyListener{
 	
 	//Inicializando player
 	Player player = new Player(670,600, "Direita");
+	
+	//Inicializar menina
+	Menina menina = new Menina(500,300);
 
 	//Selecionar o caminho trocando o parâmetro de Caminhos.
 	Caminhos caminhos = new Caminhos(10);
+	
+	//Inicializar velho
+	Velho velho = new Velho(700, 300);
+	
+	//Inicializar botao
+	BotaoE botao = new BotaoE(menina.x +40, menina.y - 50);
 	
 	Decorativos decorativos = new Decorativos(0, 300, 400);
 	Decorativos decorativos2 = new Decorativos(0, 400, 300);
@@ -100,15 +109,47 @@ public class Cena11 extends JPanel implements ActionListener, KeyListener{
 		decorativos15.draw(g);
 		decorativos16.draw(g);
 		
+		menina.draw(g);
+		velho.draw(g);
+		
 		player.draw(g);
+		
+
+		Caixa.cena = 10;
+
+		if(menina.proxima) {
+			botao.draw(g);			
+		}	
 		
 		
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//Verificar como passar o algoritmo para classe de diálogo >>> caua
+		//Algoritmo de checar proximidade
+		if((player.x >= menina.x - 150 && player.x <= menina.x + 150) &&
+				(player.y >= menina.y - 150 && player.y <= menina.y +150)) {
+			menina.proxima = true;
+		}
+		else {
+			menina.proxima = false;
+			menina.contador = 0;
+			menina.Frase = "";
+		}
+		
+		botao.animacao(botao);
 		
 		player.animacao(player);
 		player.colisaoTotalTela(player);
+		
+		velho.colisao(player, velho);
+		velho.animacao(player, velho);
+		
+		menina.proximidade(player, menina);
+		menina.colisao(player, menina);
+		menina.animacao(player, menina);
+		
+		decorativos.colisaoD(player, decorativos16, 01);
 		
 		passagemDeCaminho();
         repaint();
@@ -138,6 +179,26 @@ public class Cena11 extends JPanel implements ActionListener, KeyListener{
 		
 			player.aaux = false;
 			player.daux = true;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_E) {
+			if(menina.proxima) {
+				if(Caixa.auxPassagemdeDialogo != 0) {
+					Caixa.currentDialog = "";
+					Caixa.auxiliar = "";	
+					Caixa.contador = 0;
+					Caixa.fala++;
+				}
+				Caixa.CaixaMenina = true;
+				System.out.println("Botao E pressionado proximo a menina.");
+				
+				Caixa.auxPassagemdeDialogo++;
+
+			}
+			else {
+				System.out.println("Botao E pressionado longe da menina.");
+			}
+			
 		}
 	}
 		

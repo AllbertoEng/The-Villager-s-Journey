@@ -63,8 +63,9 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos11 = new Decorativos(2, 800, 350);
 	Decorativos decorativos12 = new Decorativos(5, 1200, 100);
 	Decorativos decorativos13 = new Decorativos(5, 1100, 400);
-	Decorativos decorativos14 = new Decorativos(0, 600, 500);
-	Decorativos decorativos15 = new Decorativos(0, 1000, 400);
+	Decorativos decorativos14 = new Decorativos(1, 735, 0);
+	Decorativos decorativos15 = new Decorativos(0, 600, 500);
+	Decorativos decorativos16 = new Decorativos(0, 1000, 400);
 
 	
 	
@@ -128,7 +129,7 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 		decorativos13.draw(g);
 		decorativos14.draw(g);
 		decorativos15.draw(g);
-		
+		decorativos16.draw(g);
 		
 
 		
@@ -173,7 +174,8 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 		menina.proximidade(player, menina);
 		menina.colisao(player, menina);
 		menina.animacao(player, menina);
-
+		
+		decorativos.colisaoD(player, decorativos16, 01);
 		passagemDeCaminho();
 		
         repaint();

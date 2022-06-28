@@ -46,6 +46,9 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 	//Selecionar o caminho trocando o parâmetro de Caminhos.
 	Caminhos caminhos = new Caminhos(4);
 	
+	//Inicializar velho
+	Velho velho = new Velho(700, 300);
+	
 	//Inicializar botao
 	BotaoE botao = new BotaoE(menina.x +40, menina.y - 50);
 	
@@ -55,7 +58,7 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos4 = new Decorativos(6, 100, 200);
 	Decorativos decorativos5 = new Decorativos(9, 650, 0);
 	Decorativos decorativos6 = new Decorativos(5, 400, 650);
-	Decorativos decorativos7 = new Decorativos(5, 800, 400);
+	Decorativos decorativos7 = new Decorativos(5, 900, 300);
 	Decorativos decorativos8 = new Decorativos(3, 900, 650);
 	Decorativos decorativos9 = new Decorativos(2, 1000, 450);
 	Decorativos decorativos10 = new Decorativos(6, 1200, 650);
@@ -67,7 +70,7 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos16 = new Decorativos(4, 650, 200);
 	Decorativos decorativos17 = new Decorativos(8, 550, 200);
 	Decorativos decorativos18 = new Decorativos(8, 950, 100);
-	
+	Decorativos decorativos19 = new Decorativos(1, 1242, 240);
 
 	
 
@@ -138,11 +141,12 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 		decorativos16.draw(g);
 		decorativos17.draw(g);
 		decorativos18.draw(g);
-	
+		decorativos19.draw(g);
 	
 		
 		
 		menina.draw(g);
+		velho.draw(g);
 		
 		player.draw(g);
 		
@@ -176,6 +180,9 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 		
 		player.animacao(player);
 		player.colisaoTotalTela(player);
+		
+		velho.colisao(player, velho);
+		velho.animacao(player, velho);
 		
 		menina.proximidade(player, menina);
 		menina.colisao(player, menina);

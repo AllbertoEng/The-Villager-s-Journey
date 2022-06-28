@@ -2,21 +2,26 @@ package Interface;
 
 import javax.swing.*;
 
-import dialogos.FinalFeliz;
 import fases.*;
 
 import java.awt.*;
-
+/**
+ * Janela do jogo.
+ * @author Equipe11
+ *
+ */
 public class Janela extends JFrame{		
-		/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-		//Card Layout
+		/**
+		 * Card Layout (controlam o mesmo espaço do painel).
+		 */
 		public static CardLayout cl = new CardLayout();
 		public static JPanel panelBase = new JPanel();
 		
-		//cenas a serem inseridas na janela
+		/**
+		 * Cenas a serem inseridas na Janela
+		 */
 		static Menu menu = new Menu();
 		public static Intro intro = new Intro();
 		static animacao animacao = new animacao();
@@ -30,18 +35,19 @@ public class Janela extends JFrame{
 		public static Cena09 cena09 = new Cena09();
 		public static Cena10 cena10 = new Cena10();
 		public static Cena11 cena11 = new Cena11();
-		public static CenaFinalFeliz finalfeliz = new CenaFinalFeliz();
-		public static CenaFinalRuim finalruim = new CenaFinalRuim();
-		
 		public static Cena01Pergaminho cena01Pergaminho = new Cena01Pergaminho();
 		public static Batalha batalha = new Batalha();
 		
-		
+		/**
+		 * Título da janela.
+		 */
 		String TituloJanela = "The Villager's Journey";
-		
+	/**
+	 * Adcionar Cenas na Janela	
+	 */
 	Janela(){
 		panelBase.setLayout(cl);
-		panelBase.add(getIntro(), "intro");		
+		panelBase.add(intro, "intro");		
 		panelBase.add(menu, "menu");
 		panelBase.add(animacao, "animacao");
 		panelBase.add(cena01Pergaminho, "cena01Pergaminho");
@@ -56,10 +62,11 @@ public class Janela extends JFrame{
 		panelBase.add(cena10, "cena10");
 		panelBase.add(cena11, "cena11");
 		panelBase.add(batalha, "batalha");
-		panelBase.add(finalfeliz, "finalfeliz");
-		panelBase.add(finalruim, "finalruim");
-		cl.show(panelBase, "intro");
-
+		cl.show(panelBase, "cena06");		
+		
+		/**
+		 * Adicionar componentes da Janela.
+		 */
 		this.setTitle(TituloJanela);		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(panelBase);
@@ -67,8 +74,12 @@ public class Janela extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
-	
+	/**
+	 * Método para incorporar a Introdução do jogo.
+	 * @return Introdução do jogo.
+	 */
 	public static Intro getIntro(){
 		return intro;
 	}
+
 }

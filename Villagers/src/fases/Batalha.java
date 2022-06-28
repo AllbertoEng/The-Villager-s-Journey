@@ -130,10 +130,9 @@ public class Batalha extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {	
 		if (e.getKeyCode() == KeyEvent.VK_E) {
-			if(Caixa.fala != 10) {
-				if((player.caminhando == false &&
-						menina.iniciandoAtaque == false && menina.voltando == false) &&
-						player.iniciandoAtaque == false && player.voltando == false){
+			if((player.caminhando == false &&
+					menina.iniciandoAtaque == false && menina.voltando == false) &&
+					player.iniciandoAtaque == false && player.voltando == false){
 
 				//Player ataca
 				if(Caixa.fala == 3 || Caixa.fala == 5 || Caixa.fala == 7) { 
@@ -154,10 +153,9 @@ public class Batalha extends JPanel implements ActionListener, KeyListener{
 					menina.tipoAtaque++;
 					if(menina.tipoAtaque > 1) {
 						menina.tipoAtaque = 0;
-
 					}
 				}
-				Caixa.auxPassagemdeDialogo++;
+				
 				if(Caixa.auxPassagemdeDialogo != 0) {
 					Caixa.currentDialog = "";
 					Caixa.auxiliar = "";	
@@ -165,29 +163,11 @@ public class Batalha extends JPanel implements ActionListener, KeyListener{
 					Caixa.fala++;
 				}
 				Caixa.CaixaMenina = true;				
-				//Caixa.auxPassagemdeDialogo++;
-				}
-			}		
-		}
-		
-		if (e.getKeyCode() == KeyEvent.VK_P) {
-			if  (Caixa.fala == 10) {
-				Janela.finalfeliz.timer.start();
-	        	Janela.batalha.timer.stop();
-	        	Janela.getIntro().clip.stop();
-	        	Janela.getIntro().playAudio(Janela.getIntro().finalFeliz, 99);
-				Janela.cl.show(Janela.panelBase, "finalfeliz");
+				Caixa.auxPassagemdeDialogo++;
+
 			}
+			
 		}
-		if (e.getKeyCode() == KeyEvent.VK_M) {
-			if  (Caixa.fala == 10) {
-				Janela.finalruim.timer.start();
-	        	Janela.batalha.timer.stop();
-	        	Janela.getIntro().clip.stop();
-	        	Janela.getIntro().playAudio(Janela.getIntro().finalTriste, 99);
-				Janela.cl.show(Janela.panelBase, "finalruim");
-			}
-		} 
 	}	
 	
 	public void keyTyped(KeyEvent e) {}

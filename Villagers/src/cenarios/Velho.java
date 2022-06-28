@@ -5,20 +5,29 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-
+/**
+ * Velho - Personagem
+ * @author Equipe11
+ *
+ */
 public class Velho {
-	
+	/**
+	 * Velho olhando para a direita
+	 */
 	Image VelhoDireita01;
 	String VelhoDireita01Path = "images//Velho//parado//velho_right1.png";
 	Image VelhoDireita02;
 	String VelhoDireita02Path = "images//Velho//parado//velho_right2.png";
-	
+	/**
+	 * Velho olhando para a esquerda
+	 */
 	public Image VelhoEsquerda01;
 	String VelhoEsquerda01Path = "images//Velho//parado//velho_left1.png";
 	Image VelhoEsquerda02;
 	String VelhoEsquerda02Path = "images//Velho//parado//velho_left2.png";
-	
-	
+	/**
+	 * Velho com a adaga
+	 */
 	public Image VelhoAdaga01;
 	String VelhoAdaga01Path = "images//Velho//entregaAdaga//velho-sword1.png";
 	Image VelhoAdaga02;
@@ -26,12 +35,16 @@ public class Velho {
 	Image VelhoAdaga03;
 	String VelhoAdaga03Path = "images//Velho//entregaAdaga//velho-sword3.png";
 	
-	//Posição inicial do Velho
+	/**
+	 * Iniciar posição do Velho
+	 */
 	public int x;
 	public int y;
 	public boolean orientacaoVelho = false, proximo = false;
 	public boolean adaga = false, entregaAdaga = false;
-	
+	/**
+	 * Desenvolvendo a caixa de diálogos do velho.
+	 */
 	static int fontSize = 20;
 	public int contador = 0;
     static Font f = new Font("Comic Sans MS", Font.BOLD, fontSize);
@@ -46,12 +59,15 @@ public class Velho {
 	public int TrocaPosicao = 20;
 
 
-	//Parâmetros x e y para definir posição inicial
+	/**
+	 * Inicializar posição do Velho
+	 * @param x = posição horizontal do Velho
+	 * @param y = posição vertical do Velho
+	 */
 	public Velho(int x ,int y) {
 		this.x = x;
 		this.y = y;
 		
-		//Menina normal
 		VelhoDireita01 = new ImageIcon(VelhoDireita01Path).getImage();
 		VelhoDireita02 = new ImageIcon(VelhoDireita02Path).getImage();
 		VelhoEsquerda01 = new ImageIcon(VelhoEsquerda01Path).getImage();
@@ -61,9 +77,10 @@ public class Velho {
 		VelhoAdaga02 = new ImageIcon(VelhoAdaga02Path).getImage();
 		VelhoAdaga03 = new ImageIcon(VelhoAdaga03Path).getImage();
 	}
-	
+	/**
+	 * Verifica a relação de proximidade entre o jogador e o velho
+	 */
 	public void proximidade(Player player, Velho velho) {
-		//Algoritmo de checar proximidade
 		if((player.x >= velho.x - 150 && player.x <= velho.x + 150) &&
 				(player.y >= velho.y - 150 && player.y <= velho.y +150)) {
 			velho.proximo = true;
@@ -72,9 +89,12 @@ public class Velho {
 			velho.proximo = false;	
 		}
 	}
-	
+	/**
+	 * Animação de olhar para a Menina olhar para o Player.
+	 * @param player = aproximar do velho e causar animação
+	 * @param velho = seguir o movimento player.
+	 */
 	public void animacao(Player player, Velho velho) {
-		//Animacao Velho
 	    velho.personagemDelay += 1;
 	    if(velho.personagemDelay > (velho.TrocaPosicao*2)) {
 	    	velho.personagemDelay = 0;
@@ -86,9 +106,12 @@ public class Velho {
 	    	velho.orientacaoVelho = false;
 	    }
 	}
-	
+	/**
+	 * Algoritmo de colisão com o Velho.
+	 * @param player = posição x e y de colisão
+	 * @param velho = posição x e y de colisão
+	 */
 	public void colisao(Player player, Velho velho) {
-		//Algoritmo de colisão com a menina.
 		if (player.x >= velho.x - velho.VelhoEsquerda01.getWidth(null)/2 && 
 				(player.y >= velho.y - velho.VelhoEsquerda01.getHeight(null)*0.7 && 
 				player.y <= velho.y + velho.VelhoEsquerda01.getHeight(null)*0.7 ) &&
@@ -119,7 +142,9 @@ public class Velho {
 			player.y = player.y + player.velMax;
 		}
 	}
-	
+	/**
+	 * Método para "pintar" o Velho na tela
+	 */
 	public void draw(Graphics g) {
 		if(entregaAdaga) {
 			if (personagemDelay <= TrocaPosicao*2/5) {

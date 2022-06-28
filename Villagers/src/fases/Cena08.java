@@ -66,7 +66,7 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos13 = new Decorativos(4, 100, 600);
 	Decorativos decorativos14 = new Decorativos(4, 0, 600);
 	Decorativos decorativos15 = new Decorativos(4, 0, 600);
-	//Decorativos decorativos16 = new Decorativos(1, 1250, 499);
+	Decorativos decorativos16 = new Decorativos(1, 1250, 499);
 	Decorativos decorativos17 = new Decorativos(4, 500, 600);
 	Decorativos decorativos18 = new Decorativos(4, 600, 600);
 	Decorativos decorativos19 = new Decorativos(4, 700, 600);
@@ -86,7 +86,7 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 				
 		//Timer iniciado
 		timer = new Timer(delay, this);
-		//timer.start();
+		timer.start();
 		
 		//Parâmetros para detecção do teclado
 		requestFocusInWindow();
@@ -116,7 +116,7 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 		decorativos13.draw(g);
 		decorativos14.draw(g);
 		decorativos15.draw(g);
-		//decorativos16.draw(g);
+		decorativos16.draw(g);
 		decorativos17.draw(g);
 		decorativos18.draw(g);
 		decorativos19.draw(g);
@@ -124,7 +124,7 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 		decorativos21.draw(g);
 		decorativos22.draw(g);
 		decorativos23.draw(g);
-	
+		decorativos24.draw(g);
 		
 		menina.draw(g);
 		//velho.draw(g);
@@ -138,11 +138,11 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 		}	
 		
 		// Se dialogo da menina estiver disponivel e  tecla E foi pressionada, desenhe a caixa de dialogo
-		if(menina.proxima == true && Caixa.CaixaMenina == true) {
-			Caixa.DialogoM(g, menina);
-			player.travado(player);
+		//if(velho.proximo == true && Caixa.CaixaMenina == true) {
+			//Caixa.DialogoM(g, menina);
+			//player.travado(player);
 		}	
-	}
+	//}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -170,7 +170,7 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 		menina.colisao(player, menina);
 		menina.animacao(player, menina);
 		
-		//decorativos.colisaoD(player, decorativos16, 01);
+		decorativos.colisaoD(player, decorativos16, 01);
 		//decorativos.colisaoD(player, decorativos10, 04);
 		decorativos.colisaoD(player, decorativos21, 05);
 		decorativos.colisaoD(player, decorativos22, 01);
