@@ -52,10 +52,10 @@ public class Velho {
 	
 	public static boolean dialogV = false;
 	
-	//Parametrizacao animação personagem
+	/**
+	 * Parametrizacao animação personagem
+	 */
 	public int personagemDelay = 0;
-	//Intervalo de tempo entre frames da animacao do personagem
-	//Cada unidade multiplica o delay (TrocaPosicao = delay * unidade)
 	public int TrocaPosicao = 20;
 
 
@@ -90,7 +90,7 @@ public class Velho {
 		}
 	}
 	/**
-	 * Animação de olhar para a Menina olhar para o Player.
+	 * Animação de olhar para a Velho olhar para o Player.
 	 * @param player = aproximar do velho e causar animação
 	 * @param velho = seguir o movimento player.
 	 */

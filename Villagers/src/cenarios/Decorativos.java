@@ -81,7 +81,7 @@ public class Decorativos {
 int numeroDecorativo, x, y;
 	/**
 	 * Enumerar os Decorativos
-	 * @param numeroDecorativo
+	 * @param numeroDecorativo = número do decorativo
 	 * @param x = posição horizontal do decorativos
 	 * @param y = posição vertical dos decorativos
 	 */
