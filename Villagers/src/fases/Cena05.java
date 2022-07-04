@@ -22,11 +22,13 @@ import cenarios.Velho;
 import dialogos.Caixa;
 
 import Interface.*;
-
+/**
+ * Classe Cena05
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena05 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -68,13 +70,6 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos17 = new Decorativos(8, 550, 200);
 	Decorativos decorativos18 = new Decorativos(8, 950, 100);
 	
-
-	
-
-	
-
-	
-	
 	/*
 	 *Lista de decorativos:
 	 	0 - Cogumelos
@@ -96,9 +91,8 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 	 */
 	
 	Caixa caixa = new Caixa();
-	
+	//Caracterização da Cena	
 	public Cena05(){ 
-		//
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -138,9 +132,7 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 		decorativos16.draw(g);
 		decorativos17.draw(g);
 		decorativos18.draw(g);
-	
-	
-		
+
 		
 		menina.draw(g);
 		
@@ -287,7 +279,9 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-	
+	/**
+	 * Algoritmo para mudar de cena ao chegar no fim do caminho
+	 */
 	 public void passagemDeCaminho() {
 	        if(player.x > 1219) {
 	        	Janela.cena06.timer.start();
@@ -295,14 +289,7 @@ public class Cena05 extends JPanel implements ActionListener, KeyListener{
 	        	Janela.getIntro().clip.stop();
 	        	Janela.getIntro().playAudio(Janela.getIntro().vilaSombrio, 99);
 	            Janela.cl.show(Janela.panelBase, "cena06");
-	        }/*
-	            else if(player.y > 610) {
-	            	Janela.cena04.timer.start();
-		        	Janela.cena05.timer.stop();
-	        	Janela.cl.show(Janela.panelBase, "cena04");
-	        }*/
+	        }
 
-	
-	
 	 	}
 	 }

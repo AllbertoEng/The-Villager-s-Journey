@@ -10,12 +10,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
+/**
+ * Menu do jogo.
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 
 public class Menu extends JPanel{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -25,7 +26,7 @@ public class Menu extends JPanel{
 	//Declaração imagem de fundo
 	Image Background;
 	String BackgroundPath = "images//logo_menu.png";
-
+	//Caracterização do menu
 	public Menu(){	
 		//Panel
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));	

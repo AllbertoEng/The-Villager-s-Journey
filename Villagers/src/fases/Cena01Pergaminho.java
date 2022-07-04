@@ -14,17 +14,18 @@ import javax.swing.*;
 import Interface.Intro;
 import Interface.Janela;
 import dialogos.Pergaminho;
-
+/**
+ * Cena Introdução Pergaminho
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class Cena01Pergaminho extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
 	final static int SCREEN_WIDTH = Intro.SCREEN_WIDTH;
 	final static int SCREEN_HEIGHT = Intro.SCREEN_HEIGHT;
-	
+	//Personalização dos pergaminhos
 	static int fontSize = 10;
 	static Font f = new Font("Comic Sans MS", Font.BOLD, fontSize);
 	int x = 100, y = 100;
@@ -32,7 +33,7 @@ public class Cena01Pergaminho extends JPanel implements ActionListener, KeyListe
 	//Timer ajustes, delay define intervalo(ms) em que ações são percebidas
 	public Timer timer;
 	int delay = 10; 
-	
+	//Patch dos pergaminhos
 	Image Pergaminho01;
 	String Pergaminho01Path = "images//pergaminho//pergaminho1.png";
 	Image Pergaminho02;
@@ -41,15 +42,13 @@ public class Cena01Pergaminho extends JPanel implements ActionListener, KeyListe
 	String Pergaminho03Path = "images//pergaminho//pergaminho3.png";
 
 	int TrocaFrame = 0;
-	
+	/**
+	 * Caracterizando a Cena
+	 */
 	public Cena01Pergaminho(){ 
 		Pergaminho01 = new ImageIcon(Pergaminho01Path).getImage();
 		Pergaminho02 = new ImageIcon(Pergaminho02Path).getImage();
 		Pergaminho03 = new ImageIcon(Pergaminho03Path).getImage();
-		
-		
-		
-		
 		
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));

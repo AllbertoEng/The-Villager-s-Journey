@@ -22,11 +22,13 @@ import cenarios.Menina;
 import cenarios.Player;
 import cenarios.Velho;
 import dialogos.Caixa;
-
+/**
+ * Classe Cena03
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena03 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -37,9 +39,7 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 	//Timer ajustes, delay define intervalo(ms) em que ações são percebidas
 	Timer timer;
 	int delay = 10;  
-	
-	
-    
+
 	//Inicializando player
 	Player player = new Player(0,500, "Direita");
 	
@@ -95,9 +95,8 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 
 	
 	Caixa caixa = new Caixa();
-	
+	//Caracterização da Cena
 	public Cena03(){ 
-		//
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -105,10 +104,6 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 		//Timer iniciado
 		timer = new Timer(delay, this);
 		//timer.start();
-		
-		//Passagem de cena
-		
-		
 		
 		//Parâmetros para detecção do teclado
 		requestFocusInWindow();
@@ -164,10 +159,6 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 		}
 	}
 		
-		//Menina.Suporte(g,500,300);
-	
-	
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -181,14 +172,10 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 			menina.proxima = false;
 			menina.contador = 0;
 			menina.Frase = "";
-			//Caixa.CaixaMenina = false;
 		}
 		
 		player.animacao(player);
 		player.colisaoTotalTela(player);
-		
-	//	velho.colisao(player, velho);
-	//	velho.animacao(player, velho);
 		
 		menina.proximidade(player, menina);
 		menina.colisao(player, menina);
@@ -237,15 +224,6 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 				Caixa.CaixaMenina = true;
 				
 				Caixa.auxPassagemdeDialogo++;
-
-							
-				
-				
-			//Exe.janela.cl.show(Exe.janela.panelBase, "menu");
-				
-				//drawDialogueScreen();
-				//player.x = 0;
-				//player.y = 500;
 			}
 			else {
 				System.out.println("Botao E pressionado longe da menina.");
@@ -255,11 +233,7 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 		}
 
 	}
-	
-	
-		
-	
-	
+
 	
 	public void keyTyped(KeyEvent e) {}
 	
@@ -313,7 +287,9 @@ public class Cena03 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-	
+	/**
+	 * Algoritmo para mudar de cena ao chegar no fim do caminho
+	 */
 	public void passagemDeCaminho() {
         if(player.y < Intro.SCREEN_HEIGHT - 761) {
         	Janela.cena04.timer.start();

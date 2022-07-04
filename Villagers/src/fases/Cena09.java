@@ -19,11 +19,12 @@ import cenarios.Decorativos;
 import cenarios.Menina;
 import cenarios.Player;
 import cenarios.Velho;
-
+/**
+ * Classe Cena09
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena09 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -40,10 +41,6 @@ public class Cena09 extends JPanel implements ActionListener, KeyListener{
 
 	//Selecionar o caminho trocando o parâmetro de Caminhos.
 	Caminhos caminhos = new Caminhos(8);
-	
-	//Velho foi removido da cena
-	//Inicializar velho
-	//Velho velho = new Velho(700, 270);
 	
 	Decorativos decorativos = new Decorativos(5, 0, 50);
 	Decorativos decorativos2 = new Decorativos(6, 150, 180);
@@ -62,8 +59,8 @@ public class Cena09 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos15 = new Decorativos(7, 1005, 520);
 	Decorativos decorativos16 = new Decorativos(7, 1205, 520);
 	
+	//Caracterização da Cena
 	public Cena09(){ 
-		//
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -114,9 +111,6 @@ public class Cena09 extends JPanel implements ActionListener, KeyListener{
 		
 		player.animacao(player);
 		player.colisaoTotalTela(player);
-		
-		//velho.colisao(player, velho);
-		//velho.animacao(player, velho);
 		
 		decorativos.colisaoD(player, decorativos16, 01);
 		passagemDeCaminho();
@@ -207,26 +201,15 @@ public class Cena09 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-	//Mudar de cena ao chegar no fim do caminho.
+	/**
+	 *Algoritmo para mudar de cena ao chegar no fim do caminho
+	*/
 	 public void passagemDeCaminho() {
-     /*
-	        if(player.x > 1219 && player.y == 383) {
 
-      */
 	        if(player.x > 1219) {
 	        	Janela.cena10.timer.start();
 	        	Janela.cena09.timer.stop();
 	            Janela.cl.show(Janela.panelBase, "cena10");
-	        }/*
-	        
-            else if(player.x < 3) {
-            	Janela.cena08.player.x = 1215;
-            	Janela.cena08.player.y = 300;
-            	Janela.cena08.timer.start();
-	        	Janela.cena09.timer.stop();
-	        	Janela.cl.show(Janela.panelBase, "cena08");	        	
-	        }*/
-
-	
+	        }	
 	 }	
 }

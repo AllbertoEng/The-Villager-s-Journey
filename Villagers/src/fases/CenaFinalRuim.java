@@ -15,11 +15,13 @@ import Interface.Intro;
 import Interface.Janela;
 import dialogos.FinalRuim;
 import dialogos.Pergaminho;
-
+/**
+ * Classe CenaFinalRuim
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class CenaFinalRuim extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -47,11 +49,7 @@ public class CenaFinalRuim extends JPanel implements ActionListener, KeyListener
 		Pergaminho01 = new ImageIcon(Pergaminho01Path).getImage();
 		Pergaminho02 = new ImageIcon(Pergaminho02Path).getImage();
 		Pergaminho03 = new ImageIcon(Pergaminho03Path).getImage();
-		
-		
-		
-		
-		
+			
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);

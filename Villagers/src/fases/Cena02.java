@@ -22,24 +22,23 @@ import cenarios.Menina;
 import cenarios.Player;
 import cenarios.Velho;
 import dialogos.Caixa;
-
+/**
+ * Classe Cena03
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena02 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
 	final static int SCREEN_WIDTH = Intro.SCREEN_WIDTH;
 	final static int SCREEN_HEIGHT = Intro.SCREEN_HEIGHT;
 	
-	
 	//Timer ajustes, delay define intervalo(ms) em que ações são percebidas
 	Timer timer;
 	int delay = 10;  
 	
-	
-    
 	//Inicializando player
 	Player player = new Player(0,500, "Direita");
 	
@@ -47,15 +46,11 @@ public class Cena02 extends JPanel implements ActionListener, KeyListener{
 	Caminhos caminhos = new Caminhos(1);
 
 	Decorativos decorativos = new Decorativos(0, 300, 420);
-	//Decorativos decorativos2 = new Decorativos(0, 430, 620);
 	Decorativos decorativos3 = new Decorativos(0, 700, 420);
-	//Decorativos decorativos4 = new Decorativos(6, 500, 580);
-	//Decorativos decorativos5 = new Decorativos(6, 300, 610);
 	Decorativos decorativos6 = new Decorativos(5, 810, 300);
 	Decorativos decorativos7 = new Decorativos(5, 240, 150);
 	Decorativos decorativos8 = new Decorativos(5, 400, 380);
 	Decorativos decorativos9 = new Decorativos(5, 20, 300);
-	
 	
 	/*
 	 *Lista de decorativos:
@@ -77,9 +72,8 @@ public class Cena02 extends JPanel implements ActionListener, KeyListener{
 	 	
 	 */
 
-	
+	//Caracterização da Cena
 	public Cena02(){ 
-		//
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -102,16 +96,12 @@ public class Cena02 extends JPanel implements ActionListener, KeyListener{
 		
 		caminhos.draw(g);
 		decorativos.draw(g);
-		//decorativos2.draw(g);
 		decorativos3.draw(g);
-		//decorativos4.draw(g);
-		//decorativos5.draw(g);
 		decorativos6.draw(g);
 		decorativos7.draw(g);
 		decorativos8.draw(g);
 		decorativos9.draw(g);
 	
-		
 		player.draw(g);
 		
 	}
@@ -122,8 +112,6 @@ public class Cena02 extends JPanel implements ActionListener, KeyListener{
 		player.animacao(player);
 		player.colisaoTotalTela(player);
 		
-		//decorativos.colisaoD(player, decorativos4, 5);
-		//decorativos.colisaoD(player, decorativos5, 5);
 		decorativos.colisaoD(player, decorativos6, 5);
 		decorativos.colisaoD(player, decorativos7, 5);
 		
@@ -162,12 +150,7 @@ public class Cena02 extends JPanel implements ActionListener, KeyListener{
 		}
 
 	}
-	
-	
-		
-	
-	
-	
+
 	public void keyTyped(KeyEvent e) {}
 	
 	public void keyReleased(KeyEvent e) {
@@ -220,7 +203,9 @@ public class Cena02 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-	
+	/**
+	 * Algoritmo para mudar de cena ao chegar no fim do caminho
+	 */
 	public void passagemDeCaminho() {
 		if(player.x > 1219) {
 	    	Janela.cena03.timer.start();
@@ -228,9 +213,5 @@ public class Cena02 extends JPanel implements ActionListener, KeyListener{
 	        Janela.cl.show(Janela.panelBase, "cena03");
 	    }
 	}
-	
-
-
-	
 	
 }

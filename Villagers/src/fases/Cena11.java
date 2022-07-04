@@ -20,11 +20,12 @@ import cenarios.Menina;
 import cenarios.Player;
 import cenarios.Velho;
 import dialogos.Caixa;
-
+/**
+ * Classe Cena11
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena11 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -59,7 +60,7 @@ public class Cena11 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos16 = new Decorativos(1, 1250, 400);
 	
 	Caixa caixa = new Caixa();
-	
+	//Caracterização da Cena
 	public Cena11(){ 
 		//
 		//Inicialização do painel	
@@ -196,7 +197,9 @@ public class Cena11 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-	
+	/**
+	 *Algoritmo para mudar de cena ao chegar no fim do caminho
+	*/
 	public void passagemDeCaminho() {
         if(player.x > 1219) {
         	Janela.batalha.timer.start();
@@ -204,12 +207,7 @@ public class Cena11 extends JPanel implements ActionListener, KeyListener{
         	Janela.getIntro().clip.stop();
         	Janela.getIntro().playAudio(Janela.getIntro().batalha1, 0);
             Janela.cl.show(Janela.panelBase, "batalha");
-        }/*
-            else if(player.y > 610) {
-        	Janela.cena10.timer.start();
-        	Janela.cena11.timer.stop();
-        	Janela.cl.show(Janela.panelBase, "cena11");
-        }*/
+        }
 
 	}		
 }

@@ -20,11 +20,13 @@ import cenarios.Menina;
 import cenarios.Player;
 import cenarios.Velho;
 import dialogos.Caixa;
-
+/**
+ * Classe Cena08
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena08 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -66,7 +68,6 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos13 = new Decorativos(4, 100, 600);
 	Decorativos decorativos14 = new Decorativos(4, 0, 600);
 	Decorativos decorativos15 = new Decorativos(4, 0, 600);
-	//Decorativos decorativos16 = new Decorativos(1, 1250, 499);
 	Decorativos decorativos17 = new Decorativos(4, 500, 600);
 	Decorativos decorativos18 = new Decorativos(4, 600, 600);
 	Decorativos decorativos19 = new Decorativos(4, 700, 600);
@@ -77,9 +78,8 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos24= new Decorativos(15, 880, 550);
 	
 	Caixa caixa = new Caixa();
-	
+	//Caracterização da Cena
 	public Cena08(){ 
-		//
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -116,7 +116,6 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 		decorativos13.draw(g);
 		decorativos14.draw(g);
 		decorativos15.draw(g);
-		//decorativos16.draw(g);
 		decorativos17.draw(g);
 		decorativos18.draw(g);
 		decorativos19.draw(g);
@@ -127,7 +126,6 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 	
 		
 		menina.draw(g);
-		//velho.draw(g);
 		player.draw(g);
 		
 
@@ -163,15 +161,10 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 		player.animacao(player);
 		player.colisaoTotalTela(player);
 		
-		//velho.colisao(player, velho);
-		//velho.animacao(player, velho);
-		
 		menina.proximidade(player, menina);
 		menina.colisao(player, menina);
 		menina.animacao(player, menina);
 		
-		//decorativos.colisaoD(player, decorativos16, 01);
-		//decorativos.colisaoD(player, decorativos10, 04);
 		decorativos.colisaoD(player, decorativos21, 05);
 		decorativos.colisaoD(player, decorativos22, 01);
 		decorativos.colisaoD(player, decorativos23, 01);
@@ -282,32 +275,14 @@ public class Cena08 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-	//Mudar de cena ao chegar no fim do caminho.
+	/**
+	 * Algoritmo para mudar de cena ao chegar no fim do caminho
+	 */
 	 public void passagemDeCaminho() {
-      /*
-
-        if(player.x > 1219 && player.y == 364) {
-            Janela.cl.show(Janela.panelBase, "cena09");
-        }
-            else if(player.y < 5 && player.x < 450) {
-        	Janela.cl.show(Janela.panelBase, "cena07");
-        }
-
-
-        */
         if(player.x > 1219) {
-        	/*
-        	Janela.cena09.player.x = 30;
-        	Janela.cena09.player.y = 300;
-        	*/
         	Janela.cena09.timer.start();
         	Janela.cena08.timer.stop();
             Janela.cl.show(Janela.panelBase, "cena09");
-        }/*
-            else if(player.y < 10) {
-            	Janela.cena07.timer.start();
-	        	Janela.cena08.timer.stop();
-        	Janela.cl.show(Janela.panelBase, "cena07");
-        }*/
+        }
 	}
 }

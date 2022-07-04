@@ -9,7 +9,10 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.*;
-
+/**
+ * Introdução
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class Intro extends JPanel{
 	//Resolução da tela
 	public final static int SCREEN_WIDTH = 1366;//y - largura

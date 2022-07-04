@@ -14,11 +14,12 @@ import Interface.Janela;
 import cenarios.*;
 import dialogos.Caixa;
 
-
+/**
+ * Cena de Batalha
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class Batalha extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -29,13 +30,14 @@ public class Batalha extends JPanel implements ActionListener, KeyListener{
 	Timer timer;
 	int delay = 15;  
 	
-	
 	Caminhos caminhos = new Caminhos(11);
 	MeninaBatalha menina = new MeninaBatalha(SCREEN_WIDTH/3*2 -120, SCREEN_HEIGHT/3);
 	PlayerBatalha player = new PlayerBatalha(0, SCREEN_HEIGHT/3);
 	
 	boolean aparecerbotao = false;
-	
+	/**
+	 * Painel da cena Batalha
+	 */
 	public Batalha(){ 
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));

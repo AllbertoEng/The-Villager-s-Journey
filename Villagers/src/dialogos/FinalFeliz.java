@@ -3,9 +3,10 @@ package dialogos;
 
 import java.awt.Font;
 import java.awt.Graphics;
-
-
-
+/**
+ * Diálogos FinalFeliz
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 
 public class FinalFeliz{
 	

@@ -2,9 +2,12 @@ package dialogos;
 
 import java.awt.Font;
 import java.awt.Graphics;
-
+/**
+ * Pergaminhos
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class Pergaminho {
-
+	//Caracterização do pergaminho
 	static int fontSize = 20;
 	public static int contador = 0;
     static Font f = new Font("SansSerif Bold Italic", Font.BOLD, fontSize);
@@ -36,7 +39,6 @@ public class Pergaminho {
 		g.drawString(p5, x, y+245);
 		g.drawString(p6, x, y+315);
 		g.drawString(p7, x, y+340);
-			//y+= 45;
-			//x+= 10;
+
 	}
 }

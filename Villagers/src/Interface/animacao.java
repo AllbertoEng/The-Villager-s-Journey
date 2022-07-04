@@ -3,7 +3,10 @@ package Interface;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-
+/**
+ * Animações do incio do jogo
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class animacao extends JPanel implements ActionListener {
 	final int SCREEN_WIDTH = 1366;
 	final int SCREEN_HEIGHT = 768;
@@ -23,6 +26,9 @@ public class animacao extends JPanel implements ActionListener {
 	int x2 = 200;
 	int y2 = 200;
 	
+	/**
+	 * Adicionando animações no painel
+	 */
 	animacao(){
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
