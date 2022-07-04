@@ -5,20 +5,24 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
-
+/**
+ * Velho - Personagem
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class Velho {
-	
+	//Velho olhando para a direita
 	Image VelhoDireita01;
 	String VelhoDireita01Path = "images//Velho//parado//velho_right1.png";
 	Image VelhoDireita02;
 	String VelhoDireita02Path = "images//Velho//parado//velho_right2.png";
 	
+	//Velho olhando para a esquerda
 	public Image VelhoEsquerda01;
 	String VelhoEsquerda01Path = "images//Velho//parado//velho_left1.png";
 	Image VelhoEsquerda02;
 	String VelhoEsquerda02Path = "images//Velho//parado//velho_left2.png";
 	
-	
+	//Velho com a adaga
 	public Image VelhoAdaga01;
 	String VelhoAdaga01Path = "images//Velho//entregaAdaga//velho-sword1.png";
 	Image VelhoAdaga02;
@@ -45,8 +49,11 @@ public class Velho {
 	//Cada unidade multiplica o delay (TrocaPosicao = delay * unidade)
 	public int TrocaPosicao = 20;
 
-
-	//Parâmetros x e y para definir posição inicial
+	/**
+	 * Inicializar posição do Velho
+	 * @param x = posição horizontal do Velho
+	 * @param y = posição vertical do Velho
+	 */
 	public Velho(int x ,int y) {
 		this.x = x;
 		this.y = y;
@@ -61,9 +68,12 @@ public class Velho {
 		VelhoAdaga02 = new ImageIcon(VelhoAdaga02Path).getImage();
 		VelhoAdaga03 = new ImageIcon(VelhoAdaga03Path).getImage();
 	}
-	
+	/**
+	 * Verifica a relação de proximidade entre o jogador e o velho
+	 * @param player = personagem interativo
+	 * @param velho = personagem interativo
+	 */
 	public void proximidade(Player player, Velho velho) {
-		//Algoritmo de checar proximidade
 		if((player.x >= velho.x - 150 && player.x <= velho.x + 150) &&
 				(player.y >= velho.y - 150 && player.y <= velho.y +150)) {
 			velho.proximo = true;
@@ -72,9 +82,12 @@ public class Velho {
 			velho.proximo = false;	
 		}
 	}
-	
+	/**
+	 * Verifica a relação de proximidade entre o jogador e o velho
+	 * @param player = posição e orientação
+	 * @param velho = posição e orientação
+	 */
 	public void animacao(Player player, Velho velho) {
-		//Animacao Velho
 	    velho.personagemDelay += 1;
 	    if(velho.personagemDelay > (velho.TrocaPosicao*2)) {
 	    	velho.personagemDelay = 0;
@@ -86,9 +99,12 @@ public class Velho {
 	    	velho.orientacaoVelho = false;
 	    }
 	}
-	
+	/**
+	 * Algoritmo de colisão com o player
+	 * @param player = colidir
+	 * @param velho = colidir
+	 */
 	public void colisao(Player player, Velho velho) {
-		//Algoritmo de colisão com a menina.
 		if (player.x >= velho.x - velho.VelhoEsquerda01.getWidth(null)/2 && 
 				(player.y >= velho.y - velho.VelhoEsquerda01.getHeight(null)*0.7 && 
 				player.y <= velho.y + velho.VelhoEsquerda01.getHeight(null)*0.7 ) &&

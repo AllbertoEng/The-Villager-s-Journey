@@ -21,11 +21,13 @@ import cenarios.Player;
 import cenarios.PlayerBatalha;
 import cenarios.Velho;
 import dialogos.Caixa;
-
+/**
+ * Classe Cena10
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena10 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -47,14 +49,10 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 	
 	//Inicializar botao
 	BotaoE botao = new BotaoE(velho.x +40, velho.y - 50);
-	
-	//Decorativos decorativos = new Decorativos(2, 30, 100);
-	//Decorativos decorativos2 = new Decorativos(2, 100, 100);
-	//Decorativos decorativos3 = new Decorativos(2, 170, 100);
+
 	Decorativos decorativos4 = new Decorativos(6, 120, 200);
 	Decorativos decorativos5 = new Decorativos(5, 500, 90);
 	Decorativos decorativos6 = new Decorativos(6, 200, 10);
-	//Decorativos decorativos7 = new Decorativos(7, 900, 20);
 	Decorativos decorativos8 = new Decorativos(8, 1160, 70);
 	Decorativos decorativos9 = new Decorativos(14, 900, 200);
 	Decorativos decorativos10 = new Decorativos(6, 0, 600);
@@ -63,25 +61,14 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos13 = new Decorativos(6, 900, 600);
 	Decorativos decorativos14 = new Decorativos(6, 1050, 600);
 	Decorativos decorativos15 = new Decorativos(6, 1200, 600);
-	//Decorativos decorativos16 = new Decorativos(1, 780, 10);
 	Decorativos decorativos17 = new Decorativos(3, 550, 650);
 	Decorativos decorativos18 = new Decorativos(3, 650, 650);
 	Decorativos decorativos19 = new Decorativos(3, 750, 650);
 	
 	Caixa caixa = new Caixa();
-
-	/*
-	beto
-	Velho velho = new Velho(325, 250);
 	
-	//Inicializar botao
-	BotaoE botao = new BotaoE(velho.x +40, velho.y - 50);
-	
-	Decorativos decorativos = new Decorativos(14, 300, 100);
-	*/
-	
+	//Caracterização da Cena
 	public Cena10(){ 
-		//
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -103,13 +90,9 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 		super.paint(g);
 		
 		caminhos.draw(g);
-		//decorativos.draw(g);
-		//decorativos2.draw(g);
-		//decorativos3.draw(g);
 		decorativos4.draw(g);
 		decorativos5.draw(g);
 		decorativos6.draw(g);
-		//decorativos7.draw(g);
 		decorativos8.draw(g);
 		decorativos9.draw(g);
 		decorativos10.draw(g);
@@ -118,7 +101,6 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 		decorativos13.draw(g);
 		decorativos14.draw(g);
 		decorativos15.draw(g);
-		//decorativos16.draw(g);
 		decorativos17.draw(g);
 		decorativos18.draw(g);
 		
@@ -163,11 +145,6 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 		velho.animacao(player, velho);
 		velho.proximidade(player, velho);
 
-		//decorativos.colisaoD(player, decorativos16, 01);
-		//decorativos.colisaoD(player, decorativos, 01);
-		//decorativos.colisaoD(player, decorativos2, 01);
-		//decorativos.colisaoD(player, decorativos3, 01);
-		
 		passagemDeCaminho();
 		repaint();
 		
@@ -280,7 +257,9 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-
+	/**
+	 *Algoritmo para mudar de cena ao chegar no fim do caminho
+	*/
 	public void passagemDeCaminho() {
 		if(player.adaga) {
 			if(player.y < Intro.SCREEN_HEIGHT - 751) {
@@ -289,14 +268,7 @@ public class Cena10 extends JPanel implements ActionListener, KeyListener{
 	            Janela.cl.show(Janela.panelBase, "cena11");
 	        }
 		}        
-        /*
-            else if(player.x < 10) {
-        	Janela.cena09.timer.start();
-        	Janela.cena10.timer.stop();
-        	Janela.cl.show(Janela.panelBase, "cena09");
-        }*/
-
-
+  
 	}	
 	
 	

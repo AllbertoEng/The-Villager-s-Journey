@@ -6,17 +6,18 @@ import dialogos.FinalFeliz;
 import fases.*;
 
 import java.awt.*;
-
+/**
+ * Janela do jogo.
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class Janela extends JFrame{		
-		/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 		//Card Layout
 		public static CardLayout cl = new CardLayout();
 		public static JPanel panelBase = new JPanel();
 		
-		//cenas a serem inseridas na janela
+		//Cenas a serem inseridas na janela
 		static Menu menu = new Menu();
 		public static Intro intro = new Intro();
 		static animacao animacao = new animacao();
@@ -31,14 +32,14 @@ public class Janela extends JFrame{
 		public static Cena10 cena10 = new Cena10();
 		public static Cena11 cena11 = new Cena11();
 		public static CenaFinalFeliz finalfeliz = new CenaFinalFeliz();
-		public static CenaFinalRuim finalruim = new CenaFinalRuim();
-		
+		public static CenaFinalRuim finalruim = new CenaFinalRuim();	
 		public static Cena01Pergaminho cena01Pergaminho = new Cena01Pergaminho();
 		public static Batalha batalha = new Batalha();
 		
-		
 		String TituloJanela = "The Villager's Journey";
-		
+	/**
+	 * Adicionar Cenas na Janela	
+	 */
 	Janela(){
 		panelBase.setLayout(cl);
 		panelBase.add(getIntro(), "intro");		
@@ -67,7 +68,10 @@ public class Janela extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
-	
+	/**
+	 * Método para incorporar a Introdução do jogo.
+	 * @return Introdução do jogo.
+	 */
 	public static Intro getIntro(){
 		return intro;
 	}

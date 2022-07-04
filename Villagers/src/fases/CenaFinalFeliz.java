@@ -14,11 +14,13 @@ import javax.swing.*;
 import Interface.Intro;
 import Interface.Janela;
 import dialogos.FinalFeliz;
-
+/**
+ * Classe CenaFinalFeliz
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class CenaFinalFeliz extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -46,10 +48,6 @@ public class CenaFinalFeliz extends JPanel implements ActionListener, KeyListene
 		Pergaminho01 = new ImageIcon(Pergaminho01Path).getImage();
 		Pergaminho02 = new ImageIcon(Pergaminho02Path).getImage();
 		Pergaminho03 = new ImageIcon(Pergaminho03Path).getImage();
-		
-		
-		
-		
 		
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));

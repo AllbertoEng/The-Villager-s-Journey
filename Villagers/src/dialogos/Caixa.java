@@ -14,7 +14,10 @@ import cenarios.Menina;
 import cenarios.MeninaBatalha;
 import cenarios.Velho;
 import fases.Cena02;
-
+/**
+ * Implementando caixa de diálogos
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 
 public class Caixa {
 	public static int cena;
@@ -25,8 +28,7 @@ public class Caixa {
 	//Boolean para verificar interação com a menina
 	public static boolean CaixaMenina = false;
 	public static int auxPassagemdeDialogo = 0;
-	
-		
+	//Personalização dos diálogos
 	static int fontSize = 20;
 	public static int contador = 0;
 	public static String Frase = "";
@@ -38,40 +40,40 @@ public class Caixa {
 
 	public Caixa() {
 		
-	// Dialogos segunda tela (Cena03)
+	//Dialogos segunda tela (Cena03)
 		dialogos[2][0] = "Menina \n Oi, licença, sei que parece estranho, mas posso te pedir um favor?";
 		dialogos[2][1] = "Menina \n Estou um pouco longe de casa e me perdi...";
 		dialogos[2][2] = "Menina \n Posso ir com você por enquanto?";
 			
-	// Dialogos terceira tela (Cena04) 
+	//Dialogos terceira tela (Cena04) 
 		dialogos[3][0] = "Menina \n Moro em uma vila próxima daqui sabe, ela foi destruída recentemente e os moradores sumiram, junto com minha \nfamília.";
 		dialogos[3][1] = "Menina \n Não consigo lembrar de nada daquele dia, tudo é tão confuso, não sei o que fazer."; 
 	
-	// Dialogos quarta tela (Cena05)
+	//Dialogos quarta tela (Cena05)
 		dialogos[4][0] = "Menina \n Sabe, lá era um lugar bem animado e divertido.";
 		dialogos[4][1] = "Menina \n Lá a maioria dass pessoas saiam em viagens para explorar o mundo.";
 		dialogos[4][2] = "Menina \n As histórias que eles contavam ao retornar da vila me encantavam.";
 		
-	// Dialogos quinta tela (Cena06)
+	//Dialogos quinta tela (Cena06)
 		dialogos[5][0] = "Menina \n Tinha um guerreiro bem famoso que sempre achava os mais estranhos itens.";
 		dialogos[5][1] = "Menina \n Um dia, ele chegou com um saco de riquezas, e atraiu a atenção de toda a vila.";
 		dialogos[5][2] = "Menina \n Ao abrir o saco, eu me senti atraída por um anel muito bonito. Acho que o guerreiro viu minha curiosidade e \nme presenteou com ele.";
 		dialogos[5][3] = "Menina \n Parando pra pensar, foi ali que minha mente ficou estranha.";
 
 		
-	// Dialogos sexta tela (Cena07)
+	//Dialogos sexta tela (Cena07)
 		dialogos[6][0] = "Menina \n Depois desse dia, eu começei a ter pensamentos estranhos.";
 		dialogos[6][1] = "Menina \n O que mais me marcou, era uma canção esquisita, que nunca ouvi alguém cantar.";
 		dialogos[6][2] = "Menina \n Enquanto eu a cantava, me sentia bem ♪♪♪♪♪.";
 		dialogos[6][3] = "Menina \n Mas as pessoas ao meu redor, minha família, meus amigos, todos começaram a se sentir mal, por uma doença \ndesconhecida.";
 		
-	// Dialogos sétima tela (Cena08)
+	//Dialogos sétima tela (Cena08)
 		dialogos[7][0] = "Menina \n O guerreiro famoso percebeu a doença que assolava a vila, e partiu uma jornada... ";
 		dialogos[7][1] = "Menina \n Ele retornou depois de um tempo, mas já era tarde.";
 		dialogos[7][2] = "Menina \n O anél... me fez fazer coisas horríveis! Não era eu, eu juro!";
 		dialogos[7][3] = "Menina \n Estou sentindo ele de novo, tenho que correr, não quero machucar você também!";
 		
-	// Dialogos nona tela (Cena10)
+	//Dialogos nona tela (Cena10)
 		dialogos[9][0] = "Guerreiro \n Olá aldeão, pela sua cara já sei que descobriu certas coisas sobre aquela vila.";
 		dialogos[9][1] = "Guerreiro \n Aquela menina já sofreu muito, não merecia nada daquela tragédia...";
 		dialogos[9][2] = "Guerreiro \n Quando voltei com a cura, todos já estavam mortos, e só ela restava.";
@@ -80,27 +82,31 @@ public class Caixa {
 		dialogos[9][5] = "Guerreiro \n Porém ela não é tão forte como antes, acho que se você lutar, deve ter uma chance boa de ganhar.";
 		dialogos[9][6] = "Guerreiro \n Leve essa espada com você, junto com a oração. Por favor, acabe com essa história de terror!";
 		
-	// Dialogos décima tela (Cena11)
+	//Dialogos décima tela (Cena11)
 		dialogos[10][0] = "Menina \n Então agora você já sabe de tudo, está está aqui para me matar?";
 		dialogos[10][1] = "Menina \n Eu não consigo controlar meu corpo, espero que esteja preparado.";
 		dialogos[10][2] = "Menina \n Pelo menos tive uma pessoa para passsar meus ultimos suspiros, lhe agradeço por isso.";
 		dialogos[10][3] = "Menina \n Me perdoe pelo que irá acontecer agora.";
-		// Primeira Batida(Player)
+		//Primeira Batida(Player)
 		dialogos[10][4] = "Menina \n Argh, essa espada daquele guerreiro é forte!";
-		// Segunda Batida(Menina)
+		//Segunda Batida(Menina)
 		dialogos[10][5] = "Menina \n Não consigo me controlar...";
-		// Terceira Batida(Player)
+		//Terceira Batida(Player)
 		dialogos[10][6] = "Menina \n Continue! Acho que o ser não deve aguentar muito mais!";
-		// Quarta Batida(Menina)
+		//Quarta Batida(Menina)
 		dialogos[10][7] = "Menina \n Por favo resista esse ataque!";
-		// Quinta Batida(Player)
+		//Quinta Batida(Player)
 		dialogos[10][8] = "Menina \n Finalmente, vejo o fim desse sofrimento.";
 		dialogos[10][9] = "Menina \n O fim que você, aldeão, quiser me dar, aceitarei.";
 		//Escolha
 		dialogos[10][10] = "Deseja poupar a menina com a oração ou mata-la com a espada? \n \n  POUPAR[P]                                             MATAR[M]";
 		
 	}
-	
+	/**
+	 * Falas da Menina
+	 * @param g = pinta na tela
+	 * @param menina = recebe diálogos
+	 */
 	public static void DialogoM(Graphics g, Menina menina) {
 		
 		//Window
@@ -142,7 +148,11 @@ public class Caixa {
 		}
 		
 	}
-	
+	/**
+	 * Diálogo sem proximidade dos personagens
+	 * @param g = pintar na tela
+	 * @param menina = recebe diálogos
+	 */
 	public static void DialogoSemProximidade(Graphics g, MeninaBatalha menina) {
 		
 		//Window
@@ -183,6 +193,10 @@ public class Caixa {
 		}
 		
 	}
+	/**
+	 * Implementa diálogos nas cenas
+	 * @param g = pinta na tela
+	 */
 	public static void Dialogo(Graphics g) {
 
 		//Window
@@ -213,7 +227,11 @@ public class Caixa {
 			}
 		}
 	}
-	
+	/**
+	 * Falas do Velho
+	 * @param g = pinta na tela
+	 * @param velho = recebe dialogos
+	 */
 	public static void DialogoV(Graphics g, Velho velho) {
 		
 		//Window
@@ -254,7 +272,14 @@ public class Caixa {
 		
 	}
 	
-	
+	/**
+	 * Caracterização da caixa de diálogos
+	 * @param g - pinta na tela
+	 * @param x - posição horizonal
+	 * @param y - posição vertical
+	 * @param width - largura
+	 * @param height - altura
+	 */
 	public static void drawSubWindow(Graphics g, int x, int y, int width, int height) {
 		Graphics2D g2 = (Graphics2D) g;
 		Color c = new Color(0,0,0);

@@ -20,11 +20,13 @@ import cenarios.Menina;
 import cenarios.Player;
 import cenarios.Velho;
 import dialogos.Caixa;
-
+/**
+ * Classe Cena04
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ *
+ */
 public class Cena04 extends JPanel implements ActionListener, KeyListener{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	//Resolução da tela
@@ -66,8 +68,6 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 	Decorativos decorativos14 = new Decorativos(0, 600, 500);
 	Decorativos decorativos15 = new Decorativos(0, 1000, 400);
 
-	
-	
 	/*
 	 *Lista de decorativos:
 	 	0 - Cogumelos
@@ -89,9 +89,8 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 	 */
 	
 	Caixa caixa = new Caixa();
-	
+	//Caracterização da Cena
 	public Cena04(){ 
-		//
 		//Inicialização do painel	
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
@@ -127,13 +126,9 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 		decorativos12.draw(g);
 		decorativos13.draw(g);
 		decorativos14.draw(g);
-		decorativos15.draw(g);
-		
-		
-
+		decorativos15.draw(g);		
 		
 		menina.draw(g);
-		//velho.draw(g);
 		
 		player.draw(g);
 		
@@ -226,9 +221,7 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 		}
 	}
 		
-	
-	
-	
+
 	public void keyTyped(KeyEvent e) {}
 	
 	public void keyReleased(KeyEvent e) {
@@ -281,16 +274,10 @@ public class Cena04 extends JPanel implements ActionListener, KeyListener{
 			player.right();
 		}
 	}
-
+	/**
+	 * Algoritmo para mudar de cena ao chegar no fim do caminho
+	 */
 	 public void passagemDeCaminho() {
-		 /*
-	        if(player.y > 610) {
-	        	Janela.cena03.timer.start();
-	        	Janela.cena04.timer.stop();
-            	Janela.cena03.player.y = 10;
-	            Janela.cl.show(Janela.panelBase, "cena03");
-	        }
-	            else*/
 		 	if(player.y < 10) {
             	Janela.cena05.timer.start();
             	Janela.cena04.timer.stop();

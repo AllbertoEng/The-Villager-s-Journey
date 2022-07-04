@@ -2,7 +2,10 @@ package dialogos;
 
 import java.awt.Font;
 import java.awt.Graphics;
-
+/**
+ * Diálogos FinalRuim
+ * @author Equipe11: Alberto, Cauã, Vinicius, Pedro, Arthur
+ */
 public class FinalRuim {
 	static int fontSize = 20;
 	public static int contador = 0;
